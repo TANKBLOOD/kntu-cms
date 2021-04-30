@@ -1,0 +1,8 @@
+kntu-cms:
+  models:
+    1.Cv
+    2.CvCategory
+    3.CvComponents
+  realtions:
+    CvCategory has many Cv.
+    Cv has many Cvcomponents

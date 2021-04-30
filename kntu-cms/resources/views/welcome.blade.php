@@ -6,21 +6,41 @@
     <div class="grid grid-cols-4 text-right" dir="rtl">
         <div class="col-span-1"><!--sidebar-->
             <nav class="pt-8 mr-6 xl:pr-14">
-                <h3 class="font-bold text-lg">دستبندی های رزومه</h3>
-                <ul class="mr-4 mt-3 font-semibold text-base">
-                    <li class="mt-2 font-light">دسته اول</li>
-                    <li class="mt-2">first cat</li>
-                    <li class="mt-2">second cat</li>
-                    <li class="mt-2">third cat</li>
-                    <button type="button" class="flex justify-end px-3 -mr-1 mt-1 rounded border-2 bg-gray-100">
+                <h3 class="font-bold text-lg bg-blue-400 rounded-t-md">دستبندی های رزومه</h3>
+                <div class="bg-blue-100 mt-1">
+                    <h3 class="font-bold text-lg bg-blue-200">دسته اول</h3>
+                    <ul class="mr-4 mt-3 pb-2 font-semibold text-base">
+                        <li class="mt-2">first cat</li>
+                        <li class="mt-2">second cat</li>
+                        <li class="mt-2">third cat</li>
+                        <a href="#catModal" rel="modal:open">
+                            <button type="button" class="flex justify-end px-3 -mr-1 mt-1 rounded border-2 bg-gray-100">
+                                <span class="-mt-1">category</span>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            </button>
+                        </a>
+                    </ul>
+                </div>
+                <div class="bg-blue-100 mt-3">
+                    <h3 class="font-bold text-lg bg-blue-200">دسته دوم</h3>
+                    <ul class="mr-4 mt-3 pb-2 font-semibold text-base">
+                        <li class="mt-2">first cat</li>
+                        <li class="mt-2">second cat</li>
+                        <li class="mt-2">third cat</li>
+                        <a href="#catModal" rel="modal:open">
+                            <button type="button" class="flex justify-end px-3 -mr-1 mt-1 rounded border-2 bg-gray-100">
+                                <span class="-mt-1">category</span>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            </button>
+                        </a>
+                    </ul>
+                </div>
+                <a href="#pCatModal" rel="modal:open">
+                    <button type="button" class="flex items-center px-10 mt-2 rounded border-2 bg-gray-100" title="Add Category">
                         <span class="-mt-1">category</span>
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     </button>
-                </ul>
-                <button type="button" class="flex items-center px-10 mt-2 rounded border-2 bg-gray-100" title="Add Category">
-                    <span class="-mt-1">category</span>
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                </button>
+                </a>
             </nav>
         </div>
         <div class="col-span-3">
@@ -57,9 +77,51 @@
                         </div>
                     </div>
                 </div>
-                <button class="rounded overflow-hidden bg-white w-4/5 h-20 mb-6 flex items-center justify-center shadow">
-                    <svg class="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                </button>
+                <a href="#cvModal" rel="modal:open">
+                    <button class="rounded overflow-hidden bg-white w-4/5 h-20 mb-6 flex items-center justify-center shadow">
+                        <svg class="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    </button>
+                </a>
+            </div>
+
+            <div id="pCatModal" class="modal">
+                <div class="p-5">
+                    <h1 class="text-lg font-bold">Add Parent Category</h1>
+                    <form id="pCatForm" action="" class="mt-4">
+                        <label for="pCategoryName">Parent Category Name:</label>
+                        <input type="text" name="pCategory" class="border bg-gray-100" id="pCategoryName">
+                        <button type="button" id="addPcatBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">Add Category</button>
+                    </form>
+                </div>
+                <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
+            </div>
+
+
+            <div id="catModal" class="modal">
+                <div class="p-5">
+                    <h1 class="text-lg font-bold">Add Category</h1>
+                    <form id="catForm" action="" class="mt-4">
+                        <input type="hidden" id="pCatIdHolder">
+                        <label for="categoryName">Category Name:</label>
+                        <input type="text" name="category" class="border bg-gray-100" id="categoryName">
+                        <button type="button" id="addCatBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">Add Category</button>
+                    </form>
+                </div>
+                <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
+            </div>
+
+
+            <div id="cvModal" class="modal">
+                <div class="p-5">
+                    <h1 class="text-lg font-bold">Add Cv</h1>
+                    <form id="cvForm" action="" class="mt-4">
+                        <input type="hidden" id="catIdHolder">
+                        <label for="cvName">Cv Title:</label>
+                        <input type="text" name="cv" class="border bg-gray-100" id="cvName">
+                        <button type="button" id="addCvBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">Add Category</button>
+                    </form>
+                </div>
+                <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
             </div>
         </div>
 
