@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>KNTU master</title>
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-
+    <div class="border-4 border-red-100 bg-blue-100">
+        hello
+    </div>
 </body>
 </html>
