@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CvComponent extends Model
 {
     use HasFactory;
+    public function cv() {
+        return $this->belongsTo(Cv::class, 'cv_id');
+    }
 }
