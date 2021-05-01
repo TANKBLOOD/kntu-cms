@@ -45,9 +45,6 @@
             @yield('mainContent')
         </main>
 
-        <div class="absolute w-full h-52 bg-gray-400 bottom-0">
-            this is the footer
-        </div>
     </div>
 
 </body>

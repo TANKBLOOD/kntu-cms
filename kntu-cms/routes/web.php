@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CvCategoryController;
+use App\Models\CvCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/pCatAjax', [CvCategoryController::class, 'createPcatAjax'])->name('pCat.create');
+Route::post('/catAjax', [CvCategoryController::class, 'createCatAjax'])->name('cat.create');
