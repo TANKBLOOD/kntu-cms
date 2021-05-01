@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CvCategoryController;
+use App\Http\Controllers\CvConfigController;
 use App\Http\Controllers\CvController;
+use App\Http\Controllers\ParentCategoryController;
 use App\Models\CvCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/cvConfig', function() {
-    return view('cv-config.config-page');
-});
-Route::post('/pCatAjax', [CvCategoryController::class, 'createPcatAjax'])->name('pCat.create');
+Route::get('/cvConfig', [CvConfigController::class, 'displayCvConfigPage'])->name('config.display');
+Route::post('/pCatAjax', [ParentCategoryController::class, 'createPcatAjax'])->name('pCat.create');
 Route::post('/catAjax', [CvCategoryController::class, 'createCatAjax'])->name('cat.create');
 
 // Route::post('/cvAjax', [CvController::class, 'createCvajax'])->name('cv.create');

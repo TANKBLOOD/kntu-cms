@@ -8,12 +8,13 @@
         <div class="col-span-1"><!--sidebar-->
             <nav class="pt-8 mr-6 xl:pr-14">
                 <h3 class="font-bold text-lg bg-blue-400 rounded-t-md">دستبندی های رزومه</h3>
-                <div class="bg-blue-100 mt-1" data-pcat-id="1">
-                    <h3 class="font-bold text-lg bg-blue-200">دسته اول</h3>
+                @foreach ($pCats as $pCat)
+                <div class="bg-blue-100 mt-1" data-pcat-id="{{$pCat->id}}">
+                    <h3 class="font-bold text-lg bg-blue-200">{{$pCat->name}}</h3>
                     <ul class="mr-4 mt-3 pb-2 font-semibold text-base">
-                        <li class="mt-2">first cat</li>
-                        <li class="mt-2">second cat</li>
-                        <li class="mt-2">third cat</li>
+                        @foreach ($pCat->categories as $category)
+                        <li class="mt-2" data-cat-id="{{$category->id}}">{{$category->name}}</li>
+                        @endforeach
                         <a href="#catModal" rel="modal:open" onclick="getParentId(this)">
                             <button type="button" class="flex justify-end px-3 -mr-1 mt-1 rounded border-2 bg-gray-100">
                                 <span class="-mt-1">category</span>
@@ -22,20 +23,7 @@
                         </a>
                     </ul>
                 </div>
-                <div class="bg-blue-100 mt-3" data-pcat-id="2">
-                    <h3 class="font-bold text-lg bg-blue-200">دسته دوم</h3>
-                    <ul class="mr-4 mt-3 pb-2 font-semibold text-base">
-                        <li class="mt-2">first cat</li>
-                        <li class="mt-2">second cat</li>
-                        <li class="mt-2">third cat</li>
-                        <a href="#catModal" rel="modal:open" onclick="getParentId(this)">
-                            <button type="button" class="flex justify-end px-3 -mr-1 mt-1 rounded border-2 bg-gray-100">
-                                <span class="-mt-1">category</span>
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
-                            </button>
-                        </a>
-                    </ul>
-                </div>
+                @endforeach
                 <a href="#pCatModal" rel="modal:open" id="pCatAdder">
                     <button type="button" class="flex items-center px-10 mt-2 rounded border-2 bg-gray-100" title="Add Category">
                         <span class="-mt-1">category</span>
