@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCvCategoriesTable extends Migration
+class CreateParentCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateCvCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cv_categories', function (Blueprint $table) {
+        Schema::create('parent_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_id');
             $table->string('name');
             $table->timestamps();
         });
@@ -28,6 +27,6 @@ class CreateCvCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cv_categories');
+        Schema::dropIfExists('parent_categories');
     }
 }

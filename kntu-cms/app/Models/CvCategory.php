@@ -11,4 +11,7 @@ class CvCategory extends Model
     public function cv(){
         return $this->hasMany(Cv::class, 'category_id');
     }
+    public function parentCategory() {
+        return $this->belongsTo(ParentCategory::class, 'parent_id');
+    }
 }
