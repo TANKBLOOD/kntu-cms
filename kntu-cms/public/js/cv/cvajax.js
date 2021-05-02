@@ -129,3 +129,27 @@ function getCvId(item) {
     window.alert(clickedCvId);
 }
 
+$('#delCvBtn').click(function(event) {
+    event.preventDefault();
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/deleteCvAjax",
+        type:"DELETE",
+        data:{
+        cvId: clickedCvId,
+        },
+        success:function(response){
+        if(response) {
+            if(response['isDeleted'] == 'true') {
+                clickedCv.parentNode.parentNode.remove();
+                $.modal.close();
+            }
+        }
+        },
+    });
+});
