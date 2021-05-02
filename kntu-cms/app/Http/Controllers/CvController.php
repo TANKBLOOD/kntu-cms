@@ -32,4 +32,9 @@ class CvController extends Controller
         }
         return response()->json(array('cvs'=> $resCvs), 200);
     }
+
+    public function adminShowCv(Cv $cv) {
+
+        return view('cvs.admin-show', ['cv'=> $cv]);
+    }
 }
