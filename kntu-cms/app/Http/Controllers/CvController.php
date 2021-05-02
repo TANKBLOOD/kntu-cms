@@ -34,7 +34,10 @@ class CvController extends Controller
     }
 
     public function adminShowCv(Cv $cv) {
-
         return view('cvs.admin-show', ['cv'=> $cv]);
+    }
+
+    public function edit(Cv $cv) {
+        return view('cvs.edit', ['cv'=> $cv]);
     }
 }

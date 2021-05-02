@@ -32,3 +32,5 @@ Route::delete('/deleteCvAjax', [CvController::class, 'removeCvAjax'])->name('cv.
 
 Route::get('/adminCvShow/{cv}', [CvController::class, 'adminShowCv'])->name('cv.admin.show');
 
+Route::get('/editCv/{cv}', [CvController::class, 'edit'])->name('cv.edit');
+
