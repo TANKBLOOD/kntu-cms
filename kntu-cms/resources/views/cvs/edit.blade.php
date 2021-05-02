@@ -31,18 +31,18 @@
                             <div class="flex items-center my-4"><!--sm-option sample-->
                                 <svg class="w-6 h-6 mt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
                                 <div class="ml-5 text-2xl"><!--sm-option title-->
-                                    <span> {{$component->title}}:</span>
+                                    <span>{{$component->title}}</span>:
                                 </div>
                                 <div class="font-semibold"><!--sm-option value-->
                                     {{$component->value}}
                                 </div>
                                 <div class="mr-8 flex mt-1">
-                                    <a href="" class="ml-2 px-2 bg-red-500 rounded-md text-gray-300">
+                                    <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
                                         remove
-                                    </a>
-                                    <a href="" class="px-2 bg-blue-500 rounded-md text-gray-300">
+                                    </button>
+                                    <button onclick="openSmOptionEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
                                         edit
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             @elseif ($component->type == 'option')
@@ -53,12 +53,12 @@
                                         {{$component->title}}
                                     </div>
                                     <div class="mr-8 flex mt-1">
-                                        <a href="" class="ml-2 px-2 bg-red-500 rounded-md text-gray-300">
+                                        <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
                                             remove
-                                        </a>
-                                        <a href="" class="px-2 bg-blue-500 rounded-md text-gray-300">
+                                        </button>
+                                        <button onclick="openOptionEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
                                             edit
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="text-lg pr-2 py-1 border-r-2 border-gray-400" style="margin-right: 0.63rem"><!--option Value-->
@@ -72,19 +72,19 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$component->value}}
                                 </div>
                                 <div class="mr-1 flex mt-1">
-                                    <a href="" class="ml-2 px-2 bg-red-500 rounded-md text-gray-300">
+                                    <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
                                         remove
-                                    </a>
-                                    <a href="" class="px-2 bg-blue-500 rounded-md text-gray-300">
+                                    </button>
+                                    <button onclick="openPureTextEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
                                         edit
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             @else
                             <div class="my-6 flex items-center"><!--link sample-->
                                 <svg class="w-6 h-6 mr-1 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                                 <div class="text-2xl ml-3"><!--link title-->
-                                    {{$component->title}}:
+                                    <span>{{$component->title}}</span>:
                                 </div>
                                 <div class="text-lg"><!--link value-->
                                     <a href="{{$component->value}}">
@@ -92,12 +92,12 @@
                                     </a>
                                 </div>
                                 <div class="mr-8 flex mt-1">
-                                    <a href="" class="ml-2 px-2 bg-red-500 rounded-md text-gray-300">
+                                    <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
                                         remove
-                                    </a>
-                                    <a href="" class="px-2 bg-blue-500 rounded-md text-gray-300">
+                                    </button>
+                                    <button onclick="openLinkEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
                                         edit
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             @endif
@@ -107,6 +107,56 @@
             </div>
 
         </div>
+    </div>
+    <div id="smOptionModal" class="modal">
+        <div class="p-5">
+            <h1 class="text-lg font-bold">Edit sm-option</h1>
+            <form action="" class="mt-4">
+                <label for="smOptionTitle">sm-option title:</label>
+                <input type="text" name="smOptionTitle" class="border bg-gray-100 w-full text-right" dir="rtl"><br>
+                <label for="smOptionValue">sm-option value:</label>
+                <input type="text" name="smOptionValue" class="border bg-gray-100 w-full text-right" dir="rtl">
+                <button type="button" id="editSmOptionBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+            </form>
+        </div>
+        <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
+    </div>
+    <div id="optionModal" class="modal">
+        <div class="p-5">
+            <h1 class="text-lg font-bold">Edit option</h1>
+            <form action="" class="mt-4">
+                <label for="optionTitle">option title:</label>
+                <input type="text" name="optionTitle" class="border bg-gray-100 w-full text-right" dir="rtl"><br>
+                <label for="optionValue">option value:</label>
+                <textarea name="optionValue" class="border bg-gray-100 w-full h-72 text-right" id="optionValue" dir="rtl"></textarea>
+                <button type="button" id="editOptionBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+            </form>
+        </div>
+        <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
+    </div>
+    <div id="pureTextModal" class="modal">
+        <div class="p-5">
+            <h1 class="text-lg font-bold">Edit pure-text modal</h1>
+            <form action="" class="mt-4">
+                <label for="pureTextValue">pure-text value:</label>
+                <textarea name="pureTextValue" class="border bg-gray-100 w-full h-72 text-right" id="pureTextValue" dir="rtl"></textarea>
+                <button type="button" id="editPureTextBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+            </form>
+        </div>
+        <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
+    </div>
+    <div id="linkModal" class="modal">
+        <div class="p-5">
+            <h1 class="text-lg font-bold">Edit link</h1>
+            <form action="" class="mt-4">
+                <label for="linkTitle">link title:</label>
+                <input type="text" name="linkTitle" class="border bg-gray-100 w-full text-right" dir="rtl"><br>
+                <label for="linkValue">link url:</label>
+                <input type="text" name="linkUrl" class="border bg-gray-100 w-full text-right" dir="rtl">
+                <button type="button" id="editLinkBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+            </form>
+        </div>
+        <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
     </div>
 </div>
 
