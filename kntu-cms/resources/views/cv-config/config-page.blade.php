@@ -79,6 +79,16 @@
                 </div>
                 <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
             </div>
+
+            <div id="cvDeleteConfirmModal" class="modal">
+                <div class="p-4">
+                    <h3 class="text-gray-600 font-bold text-xl">Are you sure you want to delete the Cv?</h3>
+                    <div class="flex justify-end mr-8 mt-2">
+                        <button type="button" class="text-white font-bold bg-red-500 rounded-xl border p-2 ml-6">Yes</button>
+                        <a href="#" rel="modal:close" class="text-white font-bold bg-blue-500 rounded-xl border p-2 ml-6">No</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     <script src="{{asset('js/cv-category/pcategoryajax.js')}}">

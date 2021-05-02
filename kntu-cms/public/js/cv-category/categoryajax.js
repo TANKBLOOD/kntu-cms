@@ -1,8 +1,8 @@
 var categoryParentId= '';
-var clicked;
+var clickedCategory;
 function getParentId(item){
-    clicked= item;
-    categoryParentId= clicked.parentNode.parentNode.getAttribute('data-pcat-id');
+    clickedCategory= item;
+    categoryParentId= clickedCategory.parentNode.parentNode.getAttribute('data-pcat-id');
 }
 
 $("#addCatBtn").click(function(event){
@@ -30,7 +30,7 @@ $("#addCatBtn").click(function(event){
             newItem.setAttribute('data-cat-id', response['catId']);
             newItem.innerHTML= name;
 
-            clicked.parentNode.insertBefore(newItem, clicked);
+            clickedCategory.parentNode.insertBefore(newItem, clickedCategory);
         }
         },
     });

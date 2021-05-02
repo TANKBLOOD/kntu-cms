@@ -15,6 +15,9 @@ class CvController extends Controller
 
         return response()->json(array('cvId'=> $newCv->id), 200);
     }
+    public function removeCvAjax(Request $request) {
+
+    }
     public function getCvsByCategoryAjax(Request $request) {
         $cvs= Cv::where('category_id', $request->catId)->get();
 

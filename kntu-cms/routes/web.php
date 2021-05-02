@@ -28,3 +28,5 @@ Route::post('/catAjax', [CvCategoryController::class, 'createCatAjax'])->name('c
 Route::post('/cvAjax', [CvController::class, 'getCvsByCategoryAjax'])->name('cv.load');
 Route::post('/createCvAjax', [CvController::class, 'createCvAjax'])->name('cv.create');
 
+Route::delete('/deleteCvAjax', [CvController::class, 'removeCvAjax'])->name('cv.delete');
+
