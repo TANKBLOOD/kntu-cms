@@ -18,7 +18,7 @@ class CreateCvComponentsTable extends Migration
             $table->unsignedBigInteger('cv_id');
             $table->set('type', array('sm-option','option', 'link', 'pure_text'));
             $table->string('title');
-            $table->string('value');
+            $table->text('value');
             $table->timestamps();
         });
     }
