@@ -90,7 +90,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
     <script src="{{asset('js/cv-category/pcategoryajax.js')}}">
     </script>
     <script src="{{asset('js/cv-category/categoryajax.js')}}">

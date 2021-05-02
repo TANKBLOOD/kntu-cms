@@ -16,7 +16,7 @@ class CreateCvComponentsTable extends Migration
         Schema::create('cv_components', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cv_id');
-            $table->set('type', array('text', 'link', 'pure_text'));
+            $table->set('type', array('sm-option','option', 'link', 'pure_text'));
             $table->string('title');
             $table->string('value');
             $table->timestamps();
