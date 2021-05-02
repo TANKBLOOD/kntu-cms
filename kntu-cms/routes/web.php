@@ -25,4 +25,6 @@ Route::get('/cvConfig', [CvConfigController::class, 'displayCvConfigPage'])->nam
 Route::post('/pCatAjax', [ParentCategoryController::class, 'createPcatAjax'])->name('pCat.create');
 Route::post('/catAjax', [CvCategoryController::class, 'createCatAjax'])->name('cat.create');
 
-// Route::post('/cvAjax', [CvController::class, 'createCvajax'])->name('cv.create');
+Route::post('/cvAjax', [CvController::class, 'getCvsByCategoryAjax'])->name('cv.load');
+Route::post('/createCvAjax', [CvController::class, 'createCvAjax'])->name('cv.create');
+

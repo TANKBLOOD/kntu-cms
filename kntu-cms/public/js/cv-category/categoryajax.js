@@ -25,7 +25,8 @@ $("#addCatBtn").click(function(event){
         success:function(response){
         if(response) {
             let newItem= document.createElement('li');
-            newItem.setAttribute('class', 'mt-2');
+            newItem.setAttribute('class', 'mt-2 cursor-pointer');
+            newItem.setAttribute('onclick', 'loadCvs(this)');
             newItem.setAttribute('data-cat-id', response['catId']);
             newItem.innerHTML= name;
 
