@@ -36,12 +36,12 @@
                                 <div class="font-semibold"><!--sm-option value-->
                                     {{$component->value}}
                                 </div>
-                                <div class="mr-8 flex mt-1">
-                                    <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
-                                        remove
+                                <div class="mr-8 flex mt-1" data-com-id="{{$component->id}}">
+                                    <button onclick="openDeleteModal(this)" class="ml-2 px-2 bg-red-500 rounded-md text-white">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                     </button>
                                     <button onclick="openSmOptionEditModal(this)" data-com-id="{{$component->id}}" class="px-2 bg-blue-500 rounded-md text-white">
-                                        edit
+                                        <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                                     </button>
                                 </div>
                             </div>
@@ -52,12 +52,12 @@
                                     <div class="text-2xl">
                                         {{$component->title}}
                                     </div>
-                                    <div class="mr-8 flex mt-1">
-                                        <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
-                                            remove
+                                    <div class="mr-8 flex mt-1" data-com-id="{{$component->id}}">
+                                        <button onclick="openDeleteModal(this)" class="ml-2 px-2 bg-red-500 rounded-md text-white">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                         </button>
-                                        <button onclick="openOptionEditModal(this)" data-com-id="{{$component->id}}" class="px-2 bg-blue-500 rounded-md text-white">
-                                            edit
+                                        <button onclick="openOptionEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
+                                            <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                                         </button>
                                     </div>
                                 </div>
@@ -72,12 +72,12 @@
                                 <div class="flex justify-start text-lg pr-1 tracking-wide" style="padding-top: 2px;"><!--Text Content-->
                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$component->value}}
                                 </div>
-                                <div class="mr-1 flex mt-1">
-                                    <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
-                                        remove
+                                <div class="mr-1 flex mt-1" data-com-id="{{$component->id}}">
+                                    <button onclick="openDeleteModal(this)" class="ml-2 px-2 bg-red-500 rounded-md text-white">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                     </button>
                                     <button onclick="openPureTextEditModal(this)" data-com-id="{{$component->id}}" class="px-2 bg-blue-500 rounded-md text-white">
-                                        edit
+                                        <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                                     </button>
                                 </div>
                             </div>
@@ -92,12 +92,12 @@
                                         بازدید از لینک
                                     </a>
                                 </div>
-                                <div class="mr-8 flex mt-1">
-                                    <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
-                                        remove
+                                <div class="mr-8 flex mt-1" data-com-id="{{$component->id}}">
+                                    <button onclick="openDeleteModal(this)" class="ml-2 px-2 bg-red-500 rounded-md text-white">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                     </button>
                                     <button onclick="openLinkEditModal(this)" data-com-id="{{$component->id}}" class="px-2 bg-blue-500 rounded-md text-white">
-                                        edit
+                                        <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                                     </button>
                                 </div>
                             </div>
@@ -158,6 +158,15 @@
             </form>
         </div>
         <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
+    </div>
+    <div id="componentDeleteConfirmModal" class="modal">
+        <div class="p-4">
+            <h3 class="text-gray-600 font-bold text-xl">Are you sure you want to delete the component?</h3>
+            <div class="flex justify-end mr-8 mt-2">
+                <button id="delComponentBtn" type="button" class="text-white font-bold bg-red-500 rounded-xl border p-2 ml-6">Yes</button>
+                <a href="#" rel="modal:close" class="text-white font-bold bg-blue-500 rounded-xl border p-2 ml-6">No</a>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -17,4 +17,10 @@ class ComponentController extends Controller
 
         return response()->json(['edited'=> 'true'], 200);
     }
+    public function deleteComponentAjax(Request $request) {
+        $component= CvComponent::findOrFail($request->compId);
+        $component->delete();
+
+        return response()->json(['deleted'=> $request->comId], 200);
+    }
 }

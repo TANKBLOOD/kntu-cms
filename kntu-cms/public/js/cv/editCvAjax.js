@@ -1,6 +1,10 @@
 let componentHolder= document.getElementById('componentHolder');
 
 var clicked;
+function openDeleteModal(item) {
+    $('#componentDeleteConfirmModal').modal();
+    clicked= item;
+}
 function openSmOptionEditModal(item) {
     let smOptionTitle= item.parentNode.parentNode.childNodes[4].childNodes[2].innerText;
     let smOptionValue= item.parentNode.parentNode.childNodes[6].innerText;
@@ -47,8 +51,35 @@ function openLinkEditModal(item) {
     clicked= item;
 }
 
+$('#delComponentBtn').click(function(event) {
+    event.preventDefault();
+
+    let compId= clicked.parentNode.getAttribute('data-com-id');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/deleteComponentAjax",
+        type:"DELETE",
+        data:{
+            compId: compId,
+        },
+        success:function(response){
+        if(response) {
+            clicked.parentNode.parentNode.remove();
+            $.modal.close();
+        }
+        },
+    });
+});
+
 $("#editSmOptionBtn").click(function(event) {
-    let compId= clicked.getAttribute('data-com-id');
+    event.preventDefault();
+
+    let compId= clicked.parentNode.getAttribute('data-com-id');
     let comTitle= $('input[name=smOptionTitle]').val();
     let comValue= $('input[name=smOptionValue]').val();
 
@@ -58,7 +89,7 @@ $("#editSmOptionBtn").click(function(event) {
         }
     });
     $.ajax({
-        url: "/updateComponent",
+        url: "/updateComponentAjax",
         type:"POST",
         data:{
             compId: compId,
@@ -76,7 +107,9 @@ $("#editSmOptionBtn").click(function(event) {
 });
 
 $("#editOptionBtn").click(function(event) {
-    let compId= clicked.getAttribute('data-com-id');
+    event.preventDefault();
+
+    let compId= clicked.parentNode.getAttribute('data-com-id');
 
     let comTitle= $('input[name=optionTitle]').val();
     let comValue= $('textarea[name=optionValue]').val();
@@ -87,7 +120,7 @@ $("#editOptionBtn").click(function(event) {
         }
     });
     $.ajax({
-        url: "/updateComponent",
+        url: "/updateComponentAjax",
         type:"POST",
         data:{
             compId: compId,
@@ -105,7 +138,9 @@ $("#editOptionBtn").click(function(event) {
 });
 
 $("#editPureTextBtn").click(function(event) {
-    let compId= clicked.getAttribute('data-com-id');
+    event.preventDefault();
+
+    let compId= clicked.parentNode.getAttribute('data-com-id');
 
     let comValue= $('textarea[name=pureTextValue]').val();
 
@@ -115,7 +150,7 @@ $("#editPureTextBtn").click(function(event) {
         }
     });
     $.ajax({
-        url: "/updateComponent",
+        url: "/updateComponentAjax",
         type:"POST",
         data:{
             compId: compId,
@@ -131,7 +166,9 @@ $("#editPureTextBtn").click(function(event) {
 });
 
 $("#editLinkBtn").click(function(event) {
-    let compId= clicked.getAttribute('data-com-id');
+    event.preventDefault();
+
+    let compId= clicked.parentNode.getAttribute('data-com-id');
 
     let comTitle= $('input[name=linkTitle]').val();
     let comValue= $('input[name=linkUrl]').val();
@@ -142,7 +179,7 @@ $("#editLinkBtn").click(function(event) {
         }
     });
     $.ajax({
-        url: "/updateComponent",
+        url: "/updateComponentAjax",
         type:"POST",
         data:{
             compId: compId,
