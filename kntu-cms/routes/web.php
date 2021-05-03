@@ -6,6 +6,7 @@ use App\Http\Controllers\CvConfigController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\ParentCategoryController;
 use App\Models\CvCategory;
+use App\Models\ParentCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +39,4 @@ Route::post('/updateComponentAjax', [ComponentController::class, 'updateComponen
 Route::delete('/deleteComponentAjax', [ComponentController::class, 'deleteComponentAjax']);
 
 Route::delete('/deleteCatAjax', [CvCategoryController::class, 'deleteCatAjax'])->name('cat.delete');
+Route::delete('/deletePcatAjax', [ParentCategoryController::class, 'deletePcatAjax'])->name('pCat.delete');

@@ -15,4 +15,11 @@ class ParentCategoryController extends Controller
 
         return response()->json(array('pCatId'=> $newPcat->id), 200);
     }
+
+    public function deletePcatAjax(Request $request) {
+        $pCat= ParentCategory::findOrFail($request->pCatId);
+        $pCat->delete();
+
+        return response()->json(array('deleted'=> 'true'), 200);
+    }
 }

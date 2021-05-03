@@ -10,7 +10,12 @@
                 <h3 class="font-bold text-lg bg-blue-400 rounded-t-md">دستبندی های رزومه</h3>
                 @foreach ($pCats as $pCat)
                 <div class="bg-blue-100 mt-1" data-pcat-id="{{$pCat->id}}">
-                    <h3 class="font-bold text-lg bg-blue-200">{{$pCat->name}}</h3>
+                    <div class="flex justify-center items-center bg-blue-200">
+                        <h3 class="font-bold text-lg">{{$pCat->name}}</h3>
+                        <button onclick="deletePcategory(this)" class="mr-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
                     <ul class="mr-4 mt-3 pb-2 font-semibold text-base">
                         @foreach ($pCat->categories as $category)
                         <div data-cat-id="{{$category->id}}" class="flex items-center">
@@ -99,6 +104,16 @@
                     <h3 class="text-gray-600 font-bold text-xl">Are you sure you want to delete the Category?</h3>
                     <div class="flex justify-end mr-8 mt-2">
                         <button id="delCatBtn" type="button" class="text-white font-bold bg-red-500 rounded-xl border p-2 ml-6">Yes</button>
+                        <a href="#" rel="modal:close" class="text-white font-bold bg-blue-500 rounded-xl border p-2 ml-6">No</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div id="pCatDeleteConfirmModal" class="modal">
+                <div class="p-4">
+                    <h3 class="text-gray-600 font-bold text-xl">Are you sure you want to delete the Parent Category?</h3>
+                    <div class="flex justify-end mr-8 mt-2">
+                        <button id="delPcatBtn" type="button" class="text-white font-bold bg-red-500 rounded-xl border p-2 ml-6">Yes</button>
                         <a href="#" rel="modal:close" class="text-white font-bold bg-blue-500 rounded-xl border p-2 ml-6">No</a>
                     </div>
                 </div>
