@@ -24,4 +24,13 @@ class CvCategoryController extends Controller
 
         return response()->json(array('deleted'=> 'true'), 200);
     }
+
+    public function editCatAjax(Request $request) {
+        $cat= CvCategory::findOrFail($request->catId);
+        $cat->name= $request->newName;
+
+        $cat->save();
+
+        return response()->json(array('changed'=> 'true'), 200);
+    }
 }
