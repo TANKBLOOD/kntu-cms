@@ -22,4 +22,13 @@ class ParentCategoryController extends Controller
 
         return response()->json(array('deleted'=> 'true'), 200);
     }
+
+    public function editPcatAjax(Request $request) {
+        $pCat= ParentCategory::findOrFail($request->pCatId);
+        $pCat->name= $request->newName;
+
+        $pCat->save();
+
+        return response()->json(array('changed'=> 'true'), 200);
+    }
 }

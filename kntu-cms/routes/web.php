@@ -40,3 +40,4 @@ Route::delete('/deleteComponentAjax', [ComponentController::class, 'deleteCompon
 
 Route::delete('/deleteCatAjax', [CvCategoryController::class, 'deleteCatAjax'])->name('cat.delete');
 Route::delete('/deletePcatAjax', [ParentCategoryController::class, 'deletePcatAjax'])->name('pCat.delete');
+Route::post('/updatePcatAjax', [ParentCategoryController::class, 'editPcatAjax']);
