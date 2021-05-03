@@ -40,7 +40,7 @@
                                     <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
                                         remove
                                     </button>
-                                    <button onclick="openSmOptionEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
+                                    <button onclick="openSmOptionEditModal(this)" data-com-id="{{$component->id}}" class="px-2 bg-blue-500 rounded-md text-white">
                                         edit
                                     </button>
                                 </div>
@@ -56,7 +56,7 @@
                                         <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
                                             remove
                                         </button>
-                                        <button onclick="openOptionEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
+                                        <button onclick="openOptionEditModal(this)" data-com-id="{{$component->id}}" class="px-2 bg-blue-500 rounded-md text-white">
                                             edit
                                         </button>
                                     </div>
@@ -68,14 +68,15 @@
                             @elseif ($component->type == 'pure_text')
                             <div class="w-10/12 my-6 relative mr-1"><!--pure_text sample-->
                                 <svg class="w-8 h-8 absolute -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+
                                 <div class="flex justify-start text-lg pr-1 tracking-wide" style="padding-top: 2px;"><!--Text Content-->
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$component->value}}
+                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$component->value}}
                                 </div>
                                 <div class="mr-1 flex mt-1">
                                     <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
                                         remove
                                     </button>
-                                    <button onclick="openPureTextEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
+                                    <button onclick="openPureTextEditModal(this)" data-com-id="{{$component->id}}" class="px-2 bg-blue-500 rounded-md text-white">
                                         edit
                                     </button>
                                 </div>
@@ -95,7 +96,7 @@
                                     <button class="ml-2 px-2 bg-red-500 rounded-md text-white">
                                         remove
                                     </button>
-                                    <button onclick="openLinkEditModal(this)" class="px-2 bg-blue-500 rounded-md text-white">
+                                    <button onclick="openLinkEditModal(this)" data-com-id="{{$component->id}}" class="px-2 bg-blue-500 rounded-md text-white">
                                         edit
                                     </button>
                                 </div>
@@ -152,7 +153,7 @@
                 <label for="linkTitle">link title:</label>
                 <input type="text" name="linkTitle" class="border bg-gray-100 w-full text-right" dir="rtl"><br>
                 <label for="linkValue">link url:</label>
-                <input type="text" name="linkUrl" class="border bg-gray-100 w-full text-right" dir="rtl">
+                <input type="text" name="linkUrl" class="border bg-gray-100 w-full">
                 <button type="button" id="editLinkBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
             </form>
         </div>

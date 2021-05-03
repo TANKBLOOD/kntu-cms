@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CvCategoryController;
 use App\Http\Controllers\CvConfigController;
 use App\Http\Controllers\CvController;
@@ -33,4 +34,4 @@ Route::delete('/deleteCvAjax', [CvController::class, 'removeCvAjax'])->name('cv.
 Route::get('/adminCvShow/{cv}', [CvController::class, 'adminShowCv'])->name('cv.admin.show');
 
 Route::get('/editCv/{cv}', [CvController::class, 'edit'])->name('cv.edit');
-
+Route::post('/updateComponent', [ComponentController::class, 'updateComponentAjax'])->name('cv.update');
