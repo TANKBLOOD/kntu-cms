@@ -36,3 +36,5 @@ Route::get('/adminCvShow/{cv}', [CvController::class, 'adminShowCv'])->name('cv.
 Route::get('/editCv/{cv}', [CvController::class, 'edit'])->name('cv.edit');
 Route::post('/updateComponentAjax', [ComponentController::class, 'updateComponentAjax'])->name('cv.update');
 Route::delete('/deleteComponentAjax', [ComponentController::class, 'deleteComponentAjax']);
+
+Route::delete('/deleteCatAjax', [CvCategoryController::class, 'deleteCatAjax'])->name('cat.delete');

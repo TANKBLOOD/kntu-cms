@@ -17,4 +17,11 @@ class CvCategoryController extends Controller
 
         return response()->json(array('catId'=> $newPcat->id), 200);
     }
+
+    public function deleteCatAjax(Request $request) {
+        $cat= CvCategory::findOrFail($request->catId);
+        $cat->delete();
+
+        return response()->json(array('deleted'=> 'true'), 200);
+    }
 }

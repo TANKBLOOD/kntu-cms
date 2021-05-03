@@ -24,14 +24,44 @@ $("#addCatBtn").click(function(event){
         },
         success:function(response){
         if(response) {
-            let newItem= document.createElement('li');
-            newItem.setAttribute('class', 'mt-2 cursor-pointer');
-            newItem.setAttribute('onclick', 'loadCvs(this)');
+            let newItem= document.createElement('div');
             newItem.setAttribute('data-cat-id', response['catId']);
-            newItem.innerHTML= name;
+            newItem.setAttribute('class', 'flex items-center');
+            newItem.innerHTML= '<li class="mt-2 cursor-pointer"  onclick="loadCvs(this)">'+name+'</li> \
+            <button onclick="deleteCategory(this)" class="mt-3 mr-2"> \
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg> \
+            </button>';
 
             clickedCategory.parentNode.insertBefore(newItem, clickedCategory);
         }
         },
     });
 });
+
+function deleteCategory(item) {
+    let clicketCatId= item.parentNode.getAttribute('data-cat-id');
+    $('#catDeleteConfirmModal').modal();
+
+    $('#delCatBtn').click(function(event) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "/deleteCatAjax",
+            type:"DELETE",
+            data:{
+                catId: clicketCatId
+            },
+            success:function(response){
+            if(response) {
+                item.parentNode.remove();
+                $.modal.close();
+            }
+            },
+        });
+    });
+
+}
+

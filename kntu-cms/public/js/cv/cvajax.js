@@ -1,5 +1,5 @@
 function loadCvs(item){
-    let categoryId= item.getAttribute('data-cat-id');
+    let categoryId= item.parentNode.getAttribute('data-cat-id');
 
     $.ajaxSetup({
         headers: {
