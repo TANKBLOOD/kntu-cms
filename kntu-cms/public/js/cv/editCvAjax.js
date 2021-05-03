@@ -1,9 +1,9 @@
 let componentHolder= document.getElementById('componentHolder');
 
-var clicked;
+var clickedComponent;
 function openDeleteModal(item) {
     $('#componentDeleteConfirmModal').modal();
-    clicked= item;
+    clickedComponent= item;
 }
 function openSmOptionEditModal(item) {
     let smOptionTitle= item.parentNode.parentNode.childNodes[4].childNodes[2].innerText;
@@ -14,7 +14,7 @@ function openSmOptionEditModal(item) {
     modalTitleHolder.val(smOptionTitle);
     modelValueHolder.val(smOptionValue);
     $('#smOptionModal').modal();
-    clicked= item;
+    clickedComponent= item;
 }
 
 function openOptionEditModal(item) {
@@ -26,7 +26,7 @@ function openOptionEditModal(item) {
     modalTitleHolder.val(optionTitle);
     modelValueHolder.text(optionValue);
     $('#optionModal').modal();
-    clicked= item;
+    clickedComponent= item;
 }
 
 function openPureTextEditModal(item) {
@@ -35,7 +35,7 @@ function openPureTextEditModal(item) {
 
     modelValueHolder.text(pureTextValue);
     $('#pureTextModal').modal();
-    clicked= item;
+    clickedComponent= item;
 }
 
 function openLinkEditModal(item) {
@@ -48,13 +48,13 @@ function openLinkEditModal(item) {
     modalTitleHolder.val(linkTitle);
     modelValueHolder.val(linkUrl);
     $('#linkModal').modal();
-    clicked= item;
+    clickedComponent= item;
 }
 
 $('#delComponentBtn').click(function(event) {
     event.preventDefault();
 
-    let compId= clicked.parentNode.getAttribute('data-com-id');
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
 
     $.ajaxSetup({
         headers: {
@@ -69,7 +69,7 @@ $('#delComponentBtn').click(function(event) {
         },
         success:function(response){
         if(response) {
-            clicked.parentNode.parentNode.remove();
+            clickedComponent.parentNode.parentNode.remove();
             $.modal.close();
         }
         },
@@ -79,7 +79,7 @@ $('#delComponentBtn').click(function(event) {
 $("#editSmOptionBtn").click(function(event) {
     event.preventDefault();
 
-    let compId= clicked.parentNode.getAttribute('data-com-id');
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
     let comTitle= $('input[name=smOptionTitle]').val();
     let comValue= $('input[name=smOptionValue]').val();
 
@@ -98,8 +98,8 @@ $("#editSmOptionBtn").click(function(event) {
         },
         success:function(response){
         if(response) {
-            clicked.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
-            clicked.parentNode.parentNode.childNodes[6].innerText= comValue;
+            clickedComponent.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
+            clickedComponent.parentNode.parentNode.childNodes[6].innerText= comValue;
             $.modal.close();
         }
         },
@@ -109,7 +109,7 @@ $("#editSmOptionBtn").click(function(event) {
 $("#editOptionBtn").click(function(event) {
     event.preventDefault();
 
-    let compId= clicked.parentNode.getAttribute('data-com-id');
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
 
     let comTitle= $('input[name=optionTitle]').val();
     let comValue= $('textarea[name=optionValue]').val();
@@ -129,8 +129,8 @@ $("#editOptionBtn").click(function(event) {
         },
         success:function(response){
         if(response) {
-            clicked.parentNode.parentNode.childNodes[4].innerText= comTitle;
-            clicked.parentNode.parentNode.parentNode.childNodes[4].innerText= comValue;
+            clickedComponent.parentNode.parentNode.childNodes[4].innerText= comTitle;
+            clickedComponent.parentNode.parentNode.parentNode.childNodes[4].innerText= comValue;
             $.modal.close();
         }
         },
@@ -140,7 +140,7 @@ $("#editOptionBtn").click(function(event) {
 $("#editPureTextBtn").click(function(event) {
     event.preventDefault();
 
-    let compId= clicked.parentNode.getAttribute('data-com-id');
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
 
     let comValue= $('textarea[name=pureTextValue]').val();
 
@@ -158,7 +158,7 @@ $("#editPureTextBtn").click(function(event) {
         },
         success:function(response){
         if(response) {
-            clicked.parentNode.parentNode.childNodes[4].innerText= comValue;
+            clickedComponent.parentNode.parentNode.childNodes[4].innerText= comValue;
             $.modal.close();
         }
         },
@@ -168,7 +168,7 @@ $("#editPureTextBtn").click(function(event) {
 $("#editLinkBtn").click(function(event) {
     event.preventDefault();
 
-    let compId= clicked.parentNode.getAttribute('data-com-id');
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
 
     let comTitle= $('input[name=linkTitle]').val();
     let comValue= $('input[name=linkUrl]').val();
@@ -188,8 +188,8 @@ $("#editLinkBtn").click(function(event) {
         },
         success:function(response){
         if(response) {
-            clicked.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
-            clicked.parentNode.parentNode.childNodes[6].childNodes[2].setAttribute('href', comValue);
+            clickedComponent.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
+            clickedComponent.parentNode.parentNode.childNodes[6].childNodes[2].setAttribute('href', comValue);
             $.modal.close();
         }
         },
