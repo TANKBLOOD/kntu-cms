@@ -22,6 +22,13 @@ class CvController extends Controller
 
         return response()->json(array('isDeleted'=> 'true'), 200);
     }
+    public function updateCvNameAjax(Request $request) {
+        $cv= Cv::findOrFAil($request->cvId);
+        $cv->title= $request->cvName;
+
+        $cv->save();
+        return response()->json(array('saved'=> 'true'), 200);
+    }
     public function getCvsByCategoryAjax(Request $request) {
         $cvs= Cv::where('category_id', $request->catId)->get();
 

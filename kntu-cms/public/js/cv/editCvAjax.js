@@ -6,6 +6,40 @@ function openDeleteModal(item) {
     $('#componentDeleteConfirmModal').modal();
     clickedComponent= item;
 }
+
+function openEditCvNameModal(item) {
+    let cvCurrentName= item.getAttribute('data-cv-title');
+    let cvNameHolder= $('input[name=cvNewName]');
+    cvNameHolder.val(cvCurrentName);
+    $("#editCvBtn").click(function(event) {
+        event.preventDefault();
+
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "/editCvName",
+            type:"POST",
+            data:{
+                cvId: cvId,
+                cvName: cvNameHolder.val(),
+            },
+            success:function(response){
+            if(response) {
+                item.parentNode.innerText= cvNameHolder.val();
+                $.modal.close();
+            }
+            },
+        });
+    });
+
+    $('#editCvModal').modal();
+}
+
 function openSmOptionEditModal(item) {
     let smOptionTitle= item.parentNode.parentNode.childNodes[4].childNodes[2].innerText;
     let smOptionValue= item.parentNode.parentNode.childNodes[6].innerText;
@@ -56,7 +90,7 @@ function openOptionEditModal(item) {
     let modelValueHolder= $('textarea[name=optionValue]');
 
     modalTitleHolder.val(optionTitle);
-    modelValueHolder.text(optionValue);
+    modelValueHolder.val(optionValue);
 
     clickedComponent= item;
 

@@ -45,3 +45,4 @@ Route::post('/updatePcatAjax', [ParentCategoryController::class, 'editPcatAjax']
 Route::post('/updateCatAjax', [CvCategoryController::class, 'editCatAjax'])->name('cat.update');
 
 Route::post('/createComAjax', [ComponentController::class, 'createComponentAjax'])->name('comp.create');
+Route::post('/editCvName', [CvController::class, 'updateCvNameAjax'])->name('cv.editname');

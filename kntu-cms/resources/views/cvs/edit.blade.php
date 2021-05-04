@@ -23,7 +23,11 @@
                 <div class="text-xl text-gray-600 font-semibold pr-16 pt-2 my-8 mx-6"><!--card head-->
                     <div class="font-bold text-4xl text-gray-600 pb-4 border-b border-gray-600">
                        <span class="ml-5 text-4xl font-extrabold">رزومه:</span>{{$cv->title}}
+                       <button onclick="openEditCvNameModal(this)" data-cv-title="{{$cv->title}}" class="px-2 bg-blue-500 rounded-md text-white">
+                            <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </button>
                     </div>
+
                     <hr class="text-red-400">
                     <div class="mt-8 mr-1 w-10/12" id="componentHolder">
                         <!--components go here-->
@@ -123,6 +127,17 @@
             </div>
 
         </div>
+    </div>
+    <div id="editCvModal" class="modal">
+        <div class="p-5">
+            <h1 class="text-lg font-bold">edit Cv</h1>
+            <form id="" action="" class="mt-4">
+               <label for="cvNewName">change Name:</label>
+                <input type="text" name="cvNewName" class="border bg-gray-100" id="cvNewName" dir="rtl">
+                <button type="button" id="editCvBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+            </form>
+        </div>
+        <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
     </div>
     <div id="smOptionModal" class="modal">
         <div class="p-5">
