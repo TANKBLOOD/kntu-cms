@@ -1,17 +1,18 @@
 let componentHolder= document.getElementById('componentHolder');
 var cvId= document.getElementById('cvIdHolder').value;
 var clickedComponent;
+var cvTitle;
 
 function openDeleteModal(item) {
     $('#componentDeleteConfirmModal').modal();
     clickedComponent= item;
 }
 
-var cvTitle;
 function editCvNameAjax(event) {
 
     event.preventDefault();
     let cvNameHolder= $('input[name=cvNewName]');
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -37,6 +38,7 @@ function openEditCvNameModal(item) {
     let cvCurrentName= item.getAttribute('data-cv-title');
     let cvNameHolder= $('input[name=cvNewName]');
     cvNameHolder.val(cvCurrentName);
+
     $("#editCvBtn").click(editCvNameAjax);
 
     $('#editCvModal').modal();
@@ -55,39 +57,39 @@ function openSmOptionEditModal(item) {
     $("#editSmOptionBtn").css({display: 'block'});
 
     clickedComponent= item;
-    $("#editSmOptionBtn").on("click", ajax);
-    function ajax(event) {
-        event.preventDefault();
-
-        let compId= clickedComponent.parentNode.getAttribute('data-com-id');
-        let comTitle= $('input[name=smOptionTitle]').val();
-        let comValue= $('input[name=smOptionValue]').val();
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/updateComponentAjax",
-            type:"POST",
-            data:{
-                compId: compId,
-                comTitle: comTitle,
-                comValue: comValue
-            },
-            success:function(response){
-            if(response) {
-                clickedComponent.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
-                clickedComponent.parentNode.parentNode.childNodes[6].innerText= comValue;
-                $("#editSmOptionBtn").off("click");
-                $.modal.close();
-            }
-            },
-        });
-    }
 
     $('#smOptionModal').modal();
+}
+
+$("#editSmOptionBtn").on("click", editSmOptionAjax);
+function editSmOptionAjax(event) {
+    event.preventDefault();
+
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
+    let comTitle= $('input[name=smOptionTitle]').val();
+    let comValue= $('input[name=smOptionValue]').val();
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/updateComponentAjax",
+        type:"POST",
+        data:{
+            compId: compId,
+            comTitle: comTitle,
+            comValue: comValue
+        },
+        success:function(response){
+        if(response) {
+            clickedComponent.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
+            clickedComponent.parentNode.parentNode.childNodes[6].innerText= comValue;
+            $.modal.close();
+        }
+        },
+    });
 }
 
 function openOptionEditModal(item) {
@@ -103,41 +105,38 @@ function openOptionEditModal(item) {
     $("#createOptionBtn").css({display: 'none'});
     $("#editOptionBtn").css({display: 'block'});
 
-    $("#editOptionBtn").on("click", ajax);
-
-    function ajax(event) {
-        event.preventDefault();
-
-        let compId= clickedComponent.parentNode.getAttribute('data-com-id');
-
-        let comTitle= $('input[name=optionTitle]').val();
-        let comValue= $('textarea[name=optionValue]').val();
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/updateComponentAjax",
-            type:"POST",
-            data:{
-                compId: compId,
-                comTitle: comTitle,
-                comValue: comValue
-            },
-            success:function(response){
-            if(response) {
-                clickedComponent.parentNode.parentNode.childNodes[4].innerText= comTitle;
-                clickedComponent.parentNode.parentNode.parentNode.childNodes[4].innerText= comValue;
-                $("#editOptionBtn").off("click");
-                $.modal.close();
-            }
-            },
-        });
-    }
-
     $('#optionModal').modal();
+}
+
+$("#editOptionBtn").on("click", editOptionAjax);
+function editOptionAjax(event) {
+    event.preventDefault();
+
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
+    let comTitle= $('input[name=optionTitle]').val();
+    let comValue= $('textarea[name=optionValue]').val();
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/updateComponentAjax",
+        type:"POST",
+        data:{
+            compId: compId,
+            comTitle: comTitle,
+            comValue: comValue
+        },
+        success:function(response){
+        if(response) {
+            clickedComponent.parentNode.parentNode.childNodes[4].innerText= comTitle;
+            clickedComponent.parentNode.parentNode.parentNode.childNodes[4].innerText= comValue;
+            $.modal.close();
+        }
+        },
+    });
 }
 
 function openPureTextEditModal(item) {
@@ -149,45 +148,43 @@ function openPureTextEditModal(item) {
     $("#editPureTextBtn").css({display: 'block'});
 
     clickedComponent= item;
-    $("#editPureTextBtn").on("click", ajax);
-
-    function ajax(event) {
-        event.preventDefault();
-
-        let compId= clickedComponent.parentNode.getAttribute('data-com-id');
-
-        let comValue= $('textarea[name=pureTextValue]').val();
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/updateComponentAjax",
-            type:"POST",
-            data:{
-                compId: compId,
-                comValue: comValue
-            },
-            success:function(response){
-            if(response) {
-                clickedComponent.parentNode.parentNode.childNodes[4].innerText= comValue;
-                $("#editPureTextBtn").off('click');
-                $.modal.close();
-            }
-            },
-        });
-    }
 
     $('#pureTextModal').modal();
 
 }
 
+$("#editPureTextBtn").on("click", editOptionAjax);
+function editOptionAjax(event) {
+    event.preventDefault();
+
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
+
+    let comValue= $('textarea[name=pureTextValue]').val();
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/updateComponentAjax",
+        type:"POST",
+        data:{
+            compId: compId,
+            comValue: comValue
+        },
+        success:function(response){
+        if(response) {
+            clickedComponent.parentNode.parentNode.childNodes[4].innerText= comValue;
+            $.modal.close();
+        }
+        },
+    });
+}
+
 function openLinkEditModal(item) {
     let linkTitle= item.parentNode.parentNode.childNodes[4].childNodes[2].innerText;
     let linkUrl= item.parentNode.parentNode.childNodes[6].childNodes[2].getAttribute('href');
-
     let modalTitleHolder= $('input[name=linkTitle]');
     let modelValueHolder= $('input[name=linkUrl]');
 
@@ -199,40 +196,38 @@ function openLinkEditModal(item) {
 
     clickedComponent= item;
 
-    $("#editLinkBtn").on("click", ajax);
-    function ajax(event) {
-        event.preventDefault();
-
-        let compId= clickedComponent.parentNode.getAttribute('data-com-id');
-
-        let comTitle= $('input[name=linkTitle]').val();
-        let comValue= $('input[name=linkUrl]').val();
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/updateComponentAjax",
-            type:"POST",
-            data:{
-                compId: compId,
-                comTitle: comTitle,
-                comValue: comValue
-            },
-            success:function(response){
-            if(response) {
-                clickedComponent.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
-                clickedComponent.parentNode.parentNode.childNodes[6].childNodes[2].setAttribute('href', comValue);
-                $("#editLinkBtn").off('click');
-                $.modal.close();
-            }
-            },
-        });
-    }
-
     $('#linkModal').modal();
+}
+
+$("#editLinkBtn").on("click", editLinkAjax);
+function editLinkAjax(event) {
+    event.preventDefault();
+
+    let compId= clickedComponent.parentNode.getAttribute('data-com-id');
+    let comTitle= $('input[name=linkTitle]').val();
+    let comValue= $('input[name=linkUrl]').val();
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/updateComponentAjax",
+        type:"POST",
+        data:{
+            compId: compId,
+            comTitle: comTitle,
+            comValue: comValue
+        },
+        success:function(response){
+        if(response) {
+            clickedComponent.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
+            clickedComponent.parentNode.parentNode.childNodes[6].childNodes[2].setAttribute('href', comValue);
+            $.modal.close();
+        }
+        },
+    });
 }
 
 $('#delComponentBtn').click(function(event) {
@@ -311,7 +306,6 @@ function createSmOptionAjax(event) {
                 </button> \
             </div>';
             componentHolder.appendChild(newComp);
-            $("#editSmOptionBtn").off("click");
             $.modal.close();
         }
         },
@@ -330,6 +324,7 @@ function openOptionCreateModal() {
     $('#optionModal').modal();
 
 }
+
 $("#createOptionBtn").on("click", createOptionAjax);
 function createOptionAjax(event) {
     event.preventDefault();
@@ -369,7 +364,6 @@ function createOptionAjax(event) {
             </div> \
             <div class="text-lg pr-2 py-1 border-r-2 border-gray-400" style="margin-right: 0.63rem"><!--option Value-->'+comValue+'</div>';
             componentHolder.appendChild(newComp);
-            $("#editOptionBtn").off('click');
             $.modal.close();
         }
         },
@@ -394,6 +388,7 @@ function createPureTextAjax(event) {
     let modelValueHolder= $('textarea[name=pureTextValue]');
     let comValue= modelValueHolder.val();
     let comType= 'pure_text';
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -424,7 +419,6 @@ function createPureTextAjax(event) {
                 </button> \
             </div>';
             componentHolder.appendChild(newComp);
-            $("#editPureTextBtn").off('click');
             $.modal.close();
         }
         },
@@ -495,7 +489,6 @@ function createLinkAjax(event) {
             </div>';
 
             componentHolder.appendChild(newComp);
-            $("#editLinkBtn").off("click");
             $.modal.close();
         }
         },
