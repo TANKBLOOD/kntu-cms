@@ -1,41 +1,43 @@
 let componentHolder= document.getElementById('componentHolder');
 var cvId= document.getElementById('cvIdHolder').value;
-
 var clickedComponent;
+
 function openDeleteModal(item) {
     $('#componentDeleteConfirmModal').modal();
     clickedComponent= item;
 }
 
+var cvTitle;
+function editCvNameAjax(event) {
+
+    event.preventDefault();
+    let cvNameHolder= $('input[name=cvNewName]');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/editCvName",
+        type:"POST",
+        data:{
+            cvId: cvId,
+            cvName: cvNameHolder.val(),
+        },
+        success:function(response){
+        if(response) {
+            cvTitle.parentNode.innerText= cvNameHolder.val();
+            $.modal.close();
+        }
+        },
+    });
+}
 function openEditCvNameModal(item) {
+    cvTitle= item;
     let cvCurrentName= item.getAttribute('data-cv-title');
     let cvNameHolder= $('input[name=cvNewName]');
     cvNameHolder.val(cvCurrentName);
-    $("#editCvBtn").click(function(event) {
-        event.preventDefault();
-
-
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/editCvName",
-            type:"POST",
-            data:{
-                cvId: cvId,
-                cvName: cvNameHolder.val(),
-            },
-            success:function(response){
-            if(response) {
-                item.parentNode.innerText= cvNameHolder.val();
-                $.modal.close();
-            }
-            },
-        });
-    });
+    $("#editCvBtn").click(editCvNameAjax);
 
     $('#editCvModal').modal();
 }
@@ -50,7 +52,8 @@ function openSmOptionEditModal(item) {
     modelValueHolder.val(smOptionValue);
 
     clickedComponent= item;
-    $("#editSmOptionBtn").click(function(event) {
+    $("#editSmOptionBtn").on("click", ajax);
+    function ajax(event) {
         event.preventDefault();
 
         let compId= clickedComponent.parentNode.getAttribute('data-com-id');
@@ -74,11 +77,12 @@ function openSmOptionEditModal(item) {
             if(response) {
                 clickedComponent.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
                 clickedComponent.parentNode.parentNode.childNodes[6].innerText= comValue;
+                $("#editSmOptionBtn").off("click");
                 $.modal.close();
             }
             },
         });
-    });
+    }
 
     $('#smOptionModal').modal();
 }
@@ -94,7 +98,9 @@ function openOptionEditModal(item) {
 
     clickedComponent= item;
 
-    $("#editOptionBtn").click(function(event) {
+    $("#editOptionBtn").on("click", ajax);
+
+    function ajax(event) {
         event.preventDefault();
 
         let compId= clickedComponent.parentNode.getAttribute('data-com-id');
@@ -119,11 +125,12 @@ function openOptionEditModal(item) {
             if(response) {
                 clickedComponent.parentNode.parentNode.childNodes[4].innerText= comTitle;
                 clickedComponent.parentNode.parentNode.parentNode.childNodes[4].innerText= comValue;
+                $("#editOptionBtn").off("click");
                 $.modal.close();
             }
             },
         });
-    });
+    }
 
     $('#optionModal').modal();
 
@@ -136,7 +143,9 @@ function openPureTextEditModal(item) {
     modelValueHolder.val(pureTextValue);
 
     clickedComponent= item;
-    $("#editPureTextBtn").click(function(event) {
+    $("#editPureTextBtn").on("click", ajax);
+
+    function ajax(event) {
         event.preventDefault();
 
         let compId= clickedComponent.parentNode.getAttribute('data-com-id');
@@ -158,11 +167,12 @@ function openPureTextEditModal(item) {
             success:function(response){
             if(response) {
                 clickedComponent.parentNode.parentNode.childNodes[4].innerText= comValue;
+                $("#editPureTextBtn").off('click');
                 $.modal.close();
             }
             },
         });
-    });
+    }
 
     $('#pureTextModal').modal();
 
@@ -180,7 +190,8 @@ function openLinkEditModal(item) {
 
     clickedComponent= item;
 
-    $("#editLinkBtn").click(function(event) {
+    $("#editLinkBtn").on("click", ajax);
+    function ajax(event) {
         event.preventDefault();
 
         let compId= clickedComponent.parentNode.getAttribute('data-com-id');
@@ -205,11 +216,12 @@ function openLinkEditModal(item) {
             if(response) {
                 clickedComponent.parentNode.parentNode.childNodes[4].childNodes[2].innerText= comTitle;
                 clickedComponent.parentNode.parentNode.childNodes[6].childNodes[2].setAttribute('href', comValue);
+                $("#editLinkBtn").off('click');
                 $.modal.close();
             }
             },
         });
-    });
+    }
 
     $('#linkModal').modal();
 }
@@ -247,7 +259,9 @@ function openSmOptionCreateModal() {
     modalTitleHolder.val('');
     modelValueHolder.val('');
 
-    $("#editSmOptionBtn").click(function(event) {
+    $("#editSmOptionBtn").on("click",ajax);
+
+    function ajax(event) {
         event.preventDefault();
 
         let comTitle= $('input[name=smOptionTitle]').val();
@@ -285,11 +299,12 @@ function openSmOptionCreateModal() {
                     </button> \
                 </div>';
                 componentHolder.appendChild(newComp);
+                $("#editSmOptionBtn").off("click");
                 $.modal.close();
             }
             },
         });
-    });
+    }
 
     $('#smOptionModal').modal();
 }
@@ -303,7 +318,8 @@ function openOptionCreateModal() {
     modalTitleHolder.val('');
     modelValueHolder.val('');
 
-    $("#editOptionBtn").click(function(event) {
+    $("#editOptionBtn").on("click", ajax);
+    function ajax(event) {
         event.preventDefault();
 
         let comTitle= $('input[name=optionTitle]').val();
@@ -341,11 +357,12 @@ function openOptionCreateModal() {
                 </div> \
                 <div class="text-lg pr-2 py-1 border-r-2 border-gray-400" style="margin-right: 0.63rem"><!--option Value-->'+comValue+'</div>';
                 componentHolder.appendChild(newComp);
+                $("#editOptionBtn").off('click');
                 $.modal.close();
             }
             },
         });
-    });
+    }
 
     $('#optionModal').modal();
 
@@ -358,7 +375,8 @@ function openPureTextCreateModal() {
     modelValueHolder.val('');
     let comType= 'pure_text';
 
-    $("#editPureTextBtn").click(function(event) {
+    $("#editPureTextBtn").on("click", ajax);
+    function ajax(event) {
         event.preventDefault();
 
         let comValue= modelValueHolder.val();
@@ -393,18 +411,18 @@ function openPureTextCreateModal() {
                     </button> \
                 </div>';
                 componentHolder.appendChild(newComp);
+                $("#editPureTextBtn").off('click');
                 $.modal.close();
             }
             },
         });
-    });
+    }
 
     $('#pureTextModal').modal();
 
 }
 
 function openLinkCreateModal() {
-
 
     let modalTitleHolder= $('input[name=linkTitle]');
     let modelValueHolder= $('input[name=linkUrl]');
@@ -413,7 +431,9 @@ function openLinkCreateModal() {
     modelValueHolder.val('');
 
     let comType= 'link';
-    $("#editLinkBtn").click(function(event) {
+    $("#editLinkBtn").on("click", ajax);
+
+    function ajax(event) {
         event.preventDefault();
 
         let comTitle= modalTitleHolder.val();
@@ -457,11 +477,12 @@ function openLinkCreateModal() {
                 </div>';
 
                 componentHolder.appendChild(newComp);
+                $("#editLinkBtn").off("click");
                 $.modal.close();
             }
             },
         });
-    });
+    }
 
     $('#linkModal').modal();
 }
