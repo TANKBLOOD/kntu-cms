@@ -40,34 +40,35 @@ $("#addCatBtn").click(function(event){
     });
 });
 
+var toDeleteCat;
 function deleteCategory(item) {
-    let clicketCatId= item.parentNode.getAttribute('data-cat-id');
+    toDeleteCat= item;
     $('#catDeleteConfirmModal').modal();
-
-    $('#delCatBtn').click(function(event) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/deleteCatAjax",
-            type:"DELETE",
-            data:{
-                catId: clicketCatId
-            },
-            success:function(response){
-            if(response) {
-                item.parentNode.remove();
-                $.modal.close();
-            }
-            },
-        });
-    });
 }
+$('#delCatBtn').click(function(event) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/deleteCatAjax",
+        type:"DELETE",
+        data:{
+            catId: toDeleteCat.parentNode.getAttribute('data-cat-id')
+        },
+        success:function(response){
+        if(response) {
+            toDeleteCat.parentNode.remove();
+            $.modal.close();
+        }
+        },
+    });
+});
 
+var toEditCat;
 function editCatAjax(item) {
-    let clicketCatId= item.parentNode.getAttribute('data-cat-id');
+    toEditCat= item;
 
     let newNameHolder=$("input[name=catNewName]");
     if(item.parentNode.childNodes[1].innerText != undefined){ //this is bug that changes the index of the required tag in ui.some times its 1 and some times its 0;
@@ -76,34 +77,32 @@ function editCatAjax(item) {
         newNameHolder.val(item.parentNode.childNodes[0].innerText);
     }
 
-
     $('#editCatModal').modal();
 
-    $('#editCatBtn').click(function(event) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/updateCatAjax",
-            type:"POST",
-            data:{
-                catId: clicketCatId,
-                newName: newNameHolder.val()
-            },
-            success:function(response){
-            if(response) {
-                if(item.parentNode.childNodes[1].innerText != undefined){
-                    item.parentNode.childNodes[1].innerText= newNameHolder.val();
-                }else{
-                    item.parentNode.childNodes[0].innerText= newNameHolder.val();
-                }
-                $.modal.close();
-            }
-            },
-        });
-    });
-
 }
-
+$('#editCatBtn').click(function(event) {
+    let newNameHolder=$("input[name=catNewName]");
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/updateCatAjax",
+        type:"POST",
+        data:{
+            catId: toEditCat.parentNode.getAttribute('data-cat-id'),
+            newName: newNameHolder.val()
+        },
+        success:function(response){
+        if(response) {
+            if(toEditCat.parentNode.childNodes[1].innerText != undefined){
+                toEditCat.parentNode.childNodes[1].innerText= newNameHolder.val();
+            }else{
+                toEditCat.parentNode.childNodes[0].innerText= newNameHolder.val();
+            }
+            $.modal.close();
+        }
+        },
+    });
+});

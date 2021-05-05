@@ -43,58 +43,58 @@ $("#addPcatBtn").click(function(event){
     });
 });
 
+var toDeletePcat;
 function deletePcategory(item) {
-    let clicketPCatId= item.parentNode.parentNode.getAttribute('data-pcat-id');
+    toDeletePcat= item;
     $('#pCatDeleteConfirmModal').modal();
-
-    $('#delPcatBtn').click(function(event) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/deletePcatAjax",
-            type:"DELETE",
-            data:{
-                pCatId: clicketPCatId
-            },
-            success:function(response){
-            if(response) {
-                item.parentNode.parentNode.remove();
-                $.modal.close();
-            }
-            },
-        });
-    });
 }
+$('#delPcatBtn').click(function(event) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/deletePcatAjax",
+        type:"DELETE",
+        data:{
+            pCatId: toDeletePcat.parentNode.parentNode.getAttribute('data-pcat-id')
+        },
+        success:function(response){
+        if(response) {
+            toDeletePcat.parentNode.parentNode.remove();
+            $.modal.close();
+        }
+        },
+    });
+});
 
+var toEditPcat;
 function editPcategory(item) {
-    let clicketPCatId= item.parentNode.parentNode.getAttribute('data-pcat-id');
+    toEditPcat= item;
     let newNameHolder=$("input[name=pCatNewName]");
     newNameHolder.val(item.parentNode.childNodes[1].innerText);
     $('#editPcatModal').modal();
-
-    $('#editPcatBtn').click(function(event) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/updatePcatAjax",
-            type:"POST",
-            data:{
-                pCatId: clicketPCatId,
-                newName: newNameHolder.val()
-            },
-            success:function(response){
-            if(response) {
-                item.parentNode.childNodes[1].innerText= newNameHolder.val();
-                $.modal.close();
-            }
-            },
-        });
-    });
-
 }
+$('#editPcatBtn').click(function(event) {
+    let newNameHolder=$("input[name=pCatNewName]");
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: "/updatePcatAjax",
+        type:"POST",
+        data:{
+            pCatId: toEditPcat.parentNode.parentNode.getAttribute('data-pcat-id'),
+            newName: newNameHolder.val()
+        },
+        success:function(response){
+        if(response) {
+            toEditPcat.parentNode.childNodes[1].innerText= newNameHolder.val();
+            $.modal.close();
+        }
+        },
+    });
+});
