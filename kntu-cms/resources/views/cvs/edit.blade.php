@@ -148,6 +148,7 @@
                 <label for="smOptionValue">sm-option value:</label>
                 <input type="text" name="smOptionValue" class="border bg-gray-100 w-full text-right" dir="rtl">
                 <button type="button" id="editSmOptionBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+                <button type="button" id="createSmOptionBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">create</button>
             </form>
         </div>
         <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
@@ -161,6 +162,7 @@
                 <label for="optionValue">option value:</label>
                 <textarea name="optionValue" class="border bg-gray-100 w-full h-72 text-right" id="optionValue" dir="rtl"></textarea>
                 <button type="button" id="editOptionBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+                <button type="button" id="createOptionBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">create</button>
             </form>
         </div>
         <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
@@ -172,6 +174,7 @@
                 <label for="pureTextValue">pure-text value:</label>
                 <textarea name="pureTextValue" class="border bg-gray-100 w-full h-72 text-right" id="pureTextValue" dir="rtl"></textarea>
                 <button type="button" id="editPureTextBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+                <button type="button" id="createPureTextBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">create</button>
             </form>
         </div>
         <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
@@ -185,6 +188,7 @@
                 <label for="linkValue">link url:</label>
                 <input type="text" name="linkUrl" class="border bg-gray-100 w-full">
                 <button type="button" id="editLinkBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">save changes</button>
+                <button type="button" id="createLinkBtn" class="rounded-md border p-1 mt-2 bg-blue-400 text-gray-50">create</button>
             </form>
         </div>
         <a href="#" rel="modal:close" class="rounded border p-2 ml-6 bg-red-300 float-right">Close</a>
