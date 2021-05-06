@@ -4,6 +4,6 @@
 
 @section('mainContent')
     <div>
-        welcome here
+        welcome here post
     </div>
 @endsection
