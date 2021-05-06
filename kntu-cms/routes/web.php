@@ -50,3 +50,6 @@ Route::post('/editCvName', [CvController::class, 'updateCvNameAjax'])->name('cv.
 
 Route::get('/AdminCreatePost', [AnnouncementPostController::class, 'create'])->name('post.create');
 Route::post('/AdminCreatePost', [AnnouncementPostController::class,'store'])->name('post.store');
+
+Route::get('/showPost/{post}', [AnnouncementPostController::class, 'show'])->name('post.show');
+

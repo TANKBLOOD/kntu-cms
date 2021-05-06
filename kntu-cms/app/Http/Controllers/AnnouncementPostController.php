@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AnnouncementPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AnnouncementPostController extends Controller
 {
@@ -24,4 +25,10 @@ class AnnouncementPostController extends Controller
         $newPost->link= $request->link;
         $newPost->save();
     }
+
+    public function show(AnnouncementPost $post) {
+
+        return view('posting.show', ['post'=>$post]);
+    }
+
 }
