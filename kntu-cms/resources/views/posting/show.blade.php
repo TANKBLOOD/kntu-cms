@@ -3,7 +3,7 @@
 @section('title', 'Show Post')
 
 @section('mainContent')
-<div class="py-32 bg-gray-300" dir="rtl">
+<div class="py-20 bg-gray-300" dir="rtl">
     <div class="w-3/5 m-auto border rounded-md pb-20 bg-gray-200">
         <div><!--title holder-->
             <div class="mt-6 mx-12 shadow-md">
