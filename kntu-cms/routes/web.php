@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnouncementPostController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CvCategoryController;
 use App\Http\Controllers\CvConfigController;
@@ -46,3 +47,5 @@ Route::post('/updateCatAjax', [CvCategoryController::class, 'editCatAjax'])->nam
 
 Route::post('/createComAjax', [ComponentController::class, 'createComponentAjax'])->name('comp.create');
 Route::post('/editCvName', [CvController::class, 'updateCvNameAjax'])->name('cv.editname');
+
+Route::get('/AdminCreatePost', [AnnouncementPostController::class, 'create'])->name('post.create');
