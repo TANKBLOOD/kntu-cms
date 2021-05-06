@@ -49,3 +49,4 @@ Route::post('/createComAjax', [ComponentController::class, 'createComponentAjax'
 Route::post('/editCvName', [CvController::class, 'updateCvNameAjax'])->name('cv.editname');
 
 Route::get('/AdminCreatePost', [AnnouncementPostController::class, 'create'])->name('post.create');
+Route::post('/AdminCreatePost', [AnnouncementPostController::class,'store'])->name('post.store');

@@ -8,7 +8,8 @@
 <div class="my-32" class="overflow-hidden">
     <div class="m-auto bg-blue-50 w-2/5 rounded-md">
         <div class="m-auto">
-            <form action="" class="p-14">
+            <form action="{{route('post.store')}}" method="POST" enctype="multipart/form-data" class="p-14">
+                @csrf
                 <h2 class="text-3xl font-semibold border-b border-gray-400">New Post information</h2>
                 <div class="mt-8 ml-16">
                     <div>
