@@ -11,7 +11,7 @@
             </div>
         </div>
         <div><!--content Holder-->
-            <div class="border-2 bg-gray-100 border-gray-300 mx-12 pb-12 border-t-0 -mt-2 shadow-md">
+            <div class="border-2 bg-gray-100 border-gray-300 mx-12 pb-12 border-t-0 -mt-2 shadow-md rounded-b-md">
                 <div class="mt-2 px-4">
                     <div>
                         <h1 class="text-5xl">
