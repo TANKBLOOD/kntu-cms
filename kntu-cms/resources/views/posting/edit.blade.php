@@ -5,7 +5,7 @@
 @section('mainContent')
 <div>
     <div>
-        <form action="{{route('')}}" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="py-20 bg-gray-300" dir="rtl">
                 <div class="w-3/5 m-auto border rounded-md pb-20 bg-gray-200">
                     <div><!--title holder-->
@@ -25,13 +25,14 @@
                     <div><!--content Holder-->
                         <div class="border-2 bg-gray-100 border-gray-300 mx-12 pb-12 border-t-0 -mt-2 shadow-md rounded-b-md">
                             <div class="mt-4 px-4">
-                                <div class="w-3/4">
+                                <div>
                                     <label for="postTitle" class="text-xl font-semibold block">عنوان پست :</label>
                                     <input type="text" name="postTitle" id="postTitle" value="{{$post->title}}" class="w-7/12 mr-2 mt-4">
                                 </div>
-                                <div class="mt-8 text-xl pr-2 w-3/4">
+                                <div class="mt-8 text-xl pr-2">
                                     <label for="postContent" class="block">متن پست: </label>
-                                    <textarea class="w-7/12 mt-4" name="postContent" id="postContent">
+                                    <textarea class="w-7/12 mt-4 h-72" name="postContent" id="postContent" style="resize: none">
+                                        lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs g lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs  lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs  lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs  lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs  lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs
                                         {{$post->content}}
                                     </textarea>
                                 </div>
@@ -51,8 +52,8 @@
                                 </div>
                                 <div class="mt-4 pr-2 flex justify-start items-center">
                                     <h1 class="text-xl ml-4">لینک مربوطه</h1>
-                                    <div class="mt-1 text-blue-400">
-                                        <input type="text" name="newLink" value="{{$post->link}}">
+                                    <div class="mt-1 text-blue-400 w-6/12">
+                                        <input type="text" name="newLink" value="{{$post->link}}" class="w-11/12"  dir="ltr">
                                     </div>
                                 </div>
                                 <div class="mt-8 mr-2">
