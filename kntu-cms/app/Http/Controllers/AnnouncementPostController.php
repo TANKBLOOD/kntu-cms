@@ -31,4 +31,9 @@ class AnnouncementPostController extends Controller
         return view('posting.show', ['post'=>$post]);
     }
 
+    public function edit(AnnouncementPost $post) {
+
+        return view('posting.edit', ['post'=> $post]);
+    }
+
 }

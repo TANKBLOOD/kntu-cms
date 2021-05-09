@@ -53,3 +53,5 @@ Route::post('/AdminCreatePost', [AnnouncementPostController::class,'store'])->na
 
 Route::get('/showPost/{post}', [AnnouncementPostController::class, 'show'])->name('post.show');
 
+Route::get('/AdminEditPost/{post}', [AnnouncementPostController::class, 'edit'])->name('post.edit');
+
