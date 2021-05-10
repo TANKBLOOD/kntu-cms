@@ -57,3 +57,5 @@ Route::get('/showPost/{post}', [AnnouncementPostController::class, 'show'])->nam
 Route::get('/AdminEditPost/{post}', [AnnouncementPostController::class, 'edit'])->name('post.edit');
 Route::post('/AdminUpdatePost', [AnnouncementPostController::class, 'update'])->name('post.update');
 
+Route::get('/posts', [AnnouncementPostController::class, 'index'])->name('post.index');
+

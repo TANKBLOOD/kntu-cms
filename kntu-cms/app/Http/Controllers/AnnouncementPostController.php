@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class AnnouncementPostController extends Controller
 {
+    public function index() {
+        $posts= AnnouncementPost::paginate(5);
+        return view('posting.index', ['posts'=> $posts]);
+    }
     public function create() {
         return view('posting.create');
     }
