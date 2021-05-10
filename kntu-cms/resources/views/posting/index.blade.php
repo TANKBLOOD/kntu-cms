@@ -18,9 +18,12 @@
                 </div>
                 <div class="p-7 pr-10">
                     <div class="text-3xl font-semibold hover:underline">
-                        <h3>
-                            {{$post->title}}
-                        </h3>
+                        <a href="/showPost/{{$post->id}}">
+                            <h3>
+                                {{$post->title}}
+                            </h3>
+                        </a>
+
                     </div>
                     <div class="pt-4 leading-7 font-medium">
                         {{ substr($post->content, 0, 350) }}  ....
