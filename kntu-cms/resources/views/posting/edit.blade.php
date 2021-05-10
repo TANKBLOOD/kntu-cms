@@ -5,7 +5,8 @@
 @section('mainContent')
 <div>
     <div>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{route('post.update')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="py-20 bg-gray-300" dir="rtl">
                 <div class="w-3/5 m-auto border rounded-md pb-20 bg-gray-200">
                     <div><!--title holder-->
@@ -32,7 +33,6 @@
                                 <div class="mt-8 text-xl pr-2">
                                     <label for="postContent" class="block">متن پست: </label>
                                     <textarea class="w-7/12 mt-4 h-72" name="postContent" id="postContent" style="resize: none">
-                                        lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs g lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs  lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs  lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs  lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs  lkkadj kfdj;ak fjkadjf ldkafda;kgh kdlagladsgh agh ;oihdjs
                                         {{$post->content}}
                                     </textarea>
                                 </div>
@@ -49,6 +49,12 @@
                                             </label>
                                         </div>
                                     </div>
+                                    <div class="pr-2 flex justify-start items-center">
+                                        <h1 class="text-xl ml-4">مشاهده مقاله ضمیمه شده</h1>
+                                        <div class="mt-1 text-blue-400">
+                                            <a target="_blank" href="{{Storage::url($post->attachment)}}">کلیک</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mt-4 pr-2 flex justify-start items-center">
                                     <h1 class="text-xl ml-4">لینک مربوطه</h1>
@@ -56,6 +62,7 @@
                                         <input type="text" name="newLink" value="{{$post->link}}" class="w-11/12"  dir="ltr">
                                     </div>
                                 </div>
+                                <input type="hidden" name="postId" value="{{$post->id}}">
                                 <div class="mt-8 mr-2">
                                     <button type="submit" class="font-semibold text-white bg-red-500 px-3 py-1 rounded-md">اعمال تغییرات</button>
                                 </div>

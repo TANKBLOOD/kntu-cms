@@ -6,6 +6,7 @@ use App\Http\Controllers\CvCategoryController;
 use App\Http\Controllers\CvConfigController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\ParentCategoryController;
+use App\Models\AnnouncementPost;
 use App\Models\CvCategory;
 use App\Models\ParentCategory;
 use Illuminate\Support\Facades\Route;
@@ -54,4 +55,5 @@ Route::post('/AdminCreatePost', [AnnouncementPostController::class,'store'])->na
 Route::get('/showPost/{post}', [AnnouncementPostController::class, 'show'])->name('post.show');
 
 Route::get('/AdminEditPost/{post}', [AnnouncementPostController::class, 'edit'])->name('post.edit');
+Route::post('/AdminUpdatePost', [AnnouncementPostController::class, 'update'])->name('post.update');
 
