@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-span-3 p-1 mr-32"><!--social media-->
                         <div>
-                            <h2 class="font-bold text-lg">My Socail media:</h2>
+                            <h2 class="font-bold pr-16 text-lg">My Socail media:</h2>
                         </div>
                         <div class="flex pr-12 mr-2 mt-8">
                             <div class="pl-3">
@@ -147,6 +147,9 @@
                             <div class="absolute bg-gray-300 w-5 h-5 shadow-md" style="border-radius: 50%;margin-right:-0.59rem;top:18.6rem;">
 
                             </div>
+                            <div class="absolute bg-gray-300 w-5 h-5 shadow-md" style="border-radius: 50%;margin-right:-0.59rem;top:24.8rem;">
+
+                            </div>
                         </div>
                         <div class="col-span-4">
                             <div class="float-right mt-20 -mr-14 h-16 rounded-md" style="width: 94%;"><!--filled span-->
@@ -196,6 +199,9 @@
 
                             </div>
                             <div class="absolute bg-gray-300 w-5 h-5 shadow-md" style="border-radius: 50%;margin-right:-0.59rem;top:18.6rem;">
+
+                            </div>
+                            <div class="absolute bg-gray-300 w-5 h-5 shadow-md" style="border-radius: 50%;margin-right:-0.59rem;top:24.8rem;">
 
                             </div>
                             <div class="absolute bg-gray-300 w-5 h-5 shadow-lg" style="margin-right:-0.59rem;bottom:-1.4rem;">
