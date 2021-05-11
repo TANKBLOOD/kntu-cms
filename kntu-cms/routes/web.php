@@ -59,3 +59,5 @@ Route::post('/AdminUpdatePost', [AnnouncementPostController::class, 'update'])->
 
 Route::get('/posts', [AnnouncementPostController::class, 'index'])->name('post.index');
 
+Route::get('/cv', [ParentCategoryController::class, 'index'])->name('cv.index');
+
