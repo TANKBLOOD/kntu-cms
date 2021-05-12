@@ -256,14 +256,14 @@
     <div class="my-6 flex items-center link-template"><!--link sample-->
         <svg class="w-6 h-6 mr-1 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
         <div class="text-2xl ml-3"><!--link title-->
-            <span>{{$component->title}}</span>:
+            <span></span>:
         </div>
         <div class="text-lg"><!--link value-->
-            <a href="{{$component->value}}">
+            <a href="">
                 بازدید از لینک
             </a>
         </div>
-        <div class="mr-8 flex mt-1" data-com-id="{{$component->id}}">
+        <div class="mr-8 flex mt-1" data-com-id="">
             <button onclick="openDeleteModal(this)" class="ml-2 px-2 bg-red-500 rounded-md text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
             </button>

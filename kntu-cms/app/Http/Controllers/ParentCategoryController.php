@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ParentCategoryController extends Controller
 {
+    public function index() {
+        $pCats= ParentCategory::all();
+
+        return view('cvs.index', ['pCats'=> $pCats]);
+    }
     public function createPcatAjax(Request $request) {
 
         $newPcat= new ParentCategory();

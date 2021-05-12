@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AnnouncementPostController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CvCategoryController;
 use App\Http\Controllers\CvConfigController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\ParentCategoryController;
+use App\Models\AnnouncementPost;
 use App\Models\CvCategory;
 use App\Models\ParentCategory;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +48,16 @@ Route::post('/updateCatAjax', [CvCategoryController::class, 'editCatAjax'])->nam
 
 Route::post('/createComAjax', [ComponentController::class, 'createComponentAjax'])->name('comp.create');
 Route::post('/editCvName', [CvController::class, 'updateCvNameAjax'])->name('cv.editname');
+
+Route::get('/AdminCreatePost', [AnnouncementPostController::class, 'create'])->name('post.create');
+Route::post('/AdminCreatePost', [AnnouncementPostController::class,'store'])->name('post.store');
+
+Route::get('/showPost/{post}', [AnnouncementPostController::class, 'show'])->name('post.show');
+
+Route::get('/AdminEditPost/{post}', [AnnouncementPostController::class, 'edit'])->name('post.edit');
+Route::post('/AdminUpdatePost', [AnnouncementPostController::class, 'update'])->name('post.update');
+
+Route::get('/posts', [AnnouncementPostController::class, 'index'])->name('post.index');
+
+Route::get('/cv', [ParentCategoryController::class, 'index'])->name('cv.index');
+
