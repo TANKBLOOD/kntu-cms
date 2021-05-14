@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GeneralInfo;
 use App\Models\ParentCategory;
 use Illuminate\Http\Request;
 
@@ -9,8 +10,8 @@ class ParentCategoryController extends Controller
 {
     public function index() {
         $pCats= ParentCategory::all();
-
-        return view('cvs.index', ['pCats'=> $pCats]);
+        $gInfo= GeneralInfo::first();
+        return view('cvs.index', ['pCats'=> $pCats, 'gInfo'=> $gInfo]);
     }
     public function createPcatAjax(Request $request) {
 
