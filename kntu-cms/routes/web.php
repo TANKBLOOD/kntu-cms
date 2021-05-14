@@ -5,9 +5,11 @@ use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\CvCategoryController;
 use App\Http\Controllers\CvConfigController;
 use App\Http\Controllers\CvController;
+use App\Http\Controllers\GeneralInfoController;
 use App\Http\Controllers\ParentCategoryController;
 use App\Models\AnnouncementPost;
 use App\Models\CvCategory;
+use App\Models\GeneralInfo;
 use App\Models\ParentCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -60,4 +62,7 @@ Route::post('/AdminUpdatePost', [AnnouncementPostController::class, 'update'])->
 Route::get('/posts', [AnnouncementPostController::class, 'index'])->name('post.index');
 
 Route::get('/cv', [ParentCategoryController::class, 'index'])->name('cv.index');
+
+Route::get('generalInfoConfig', [GeneralInfoController::class, 'configPage'])->name('genelInfo.config');
+Route::post('generalInfoConfig', [GeneralInfoController::class, 'update'])->name('generalInfo.update');
 

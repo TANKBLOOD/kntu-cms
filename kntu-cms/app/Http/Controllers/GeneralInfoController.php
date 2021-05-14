@@ -2,9 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GeneralInfo;
 use Illuminate\Http\Request;
 
 class GeneralInfoController extends Controller
 {
-    //
+    public function configPage() {
+        $gInfo= GeneralInfo::first();
+        return view('generalinfo-config.config', ['gInfo'=> $gInfo]);
+    }
+
+    public function update(Request $request) {
+        $gInfo= GeneralInfo::first();
+        $gInfo->f_name=  $request->fName;
+        $gInfo->main_skill= $request->mainSkill;
+        $gInfo->about_me= $request->aboutMe;
+        $gInfo->interests= $request->interests;
+        $gInfo->birth_date= $request->birthDate;
+        $gInfo->phone_number= $request->phoneNumber;
+        $gInfo->email= $request->email;
+        $gInfo->address= $request->address;
+        $gInfo->face_book= $request->faceBook;
+        $gInfo->telegram= $request->telegram;
+        $gInfo->twitter= $request->twitter;
+        $gInfo->linkedin= $request->linkedin;
+        $gInfo->github= $request->github;
+
+        $gInfo->save();
+
+        return view('generalinfo-config.config', ['gInfo'=> $gInfo]);
+    }
 }
