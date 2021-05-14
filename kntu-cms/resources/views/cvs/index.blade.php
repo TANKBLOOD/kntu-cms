@@ -13,7 +13,7 @@
         }
         .headImage{
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{asset('cvHead.jpg')}}");
-            height: 50%;
+            height: 500px;
             width: 100%;
             background-repeat: no-repeat;
             background-position: center;
@@ -22,22 +22,23 @@
         #personImageHolder{
             left: 45%;
             bottom: -100px;
+            scale: 1.4;
         }
     </style>
 </head>
-<body class="bg-gray-200">
+<body class="bg-gray-300">
     <div style="height: 100%;">
         <div class="headImage relative"><!--headContainer-->
-            <div class="absolute text-center" style="width:20%;left: 40%;top:14rem;">
-                <div class="border-white border-4 p-3">
-                    <h2 class="text-4xl font-bold text-gray-50">{{$gInfo->f_name}}</h2>
-                </div>
-                <div class="mt-4">
-                    <h2 class="text-3xl font-semibold text-gray-100">{{$gInfo->main_skill}}</h2>
-                </div>
-            </div>
 
-            <img  src="{{asset('person.jpg')}}" class="m-0 p-0 absolute border-gray-100 border-4" id="personImageHolder" style="border-radius: 50%;scale:1.25;">
+            <div class="absolute text-center" style="left:42.5%;top:185px;">
+                <div class="p-3">
+                    <h2 class="text-4xl font-bold text-gray-200">{{$gInfo->f_name}}</h2>
+                </div>
+                <div class="mt-6">
+                    <h2 class="text-3xl font-semibold text-gray-200">{{$gInfo->main_skill}}</h2>
+                </div>
+                <img  src="{{asset('person.jpg')}}" class="p-0 mt-20 border-gray-100 border-4 m-auto" id="personImageHolder" style="border-radius: 50%;">
+            </div>
         </div>
         <div>
             <div class="container m-auto mt-52 px-16" dir="rtl">
@@ -58,25 +59,25 @@
                     <div class="mb-12 col-span-1"><!--contact-->
                         <div class="my-5 mt-0 flex items-center">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path></svg>
-                            <div class="pr-3">
+                            <div class="pr-3 font-semibold text-lg">
                                 {{$gInfo->birth_date}}
                             </div>
                         </div>
                         <div class="my-5 flex items-center">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            <div class="pr-3">
+                            <div class="pr-3 font-semibold text-lg">
                                 {{$gInfo->phone_number}}
                             </div>
                         </div>
                         <div class="my-5 flex items-center">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
-                            <div class="pr-3">
+                            <div class="pr-3 font-semibold text-lg">
                                 {{$gInfo->email}}
                             </div>
                         </div>
                         <div class="my-5 flex items-center">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <div class="pr-3">
+                            <div class="pr-3 font-semibold text-lg">
                                 {{$gInfo->address}}
                             </div>
                         </div>
@@ -198,7 +199,7 @@
             <div class="container m-auto">
                 <div class="flex items-center justify-center">
                     <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-                    <h2 class="text-center text-3xl font-semibold text-gray-700">Want to Follow my works? <span class="ml-2 text-2  xl text-blue-500 hover:underline cursor-pointer">Visit my posts Page.</span></h2>
+                    <h2 class="text-center text-3xl font-semibold text-gray-700">Want to Follow my works? <span class="ml-2 text-2  xl text-blue-500 hover:underline cursor-pointer"><a href="/posts">Visit my posts Page.</a></span></h2>
                 </div>
                 <div class="text-center">
                     you can fin out what ever you want in that page <br>

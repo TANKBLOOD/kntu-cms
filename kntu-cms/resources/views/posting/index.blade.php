@@ -12,7 +12,7 @@
         </div>
         <div class="mt-12 w-9/12">
             @foreach ($posts as $post)
-            <div class="relative my-4 flex justify-start border-2 border-gray-400 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl">
+            <div class="relative my-4 flex justify-start border-2 border-gray-400 rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl">
                 <div class="w-64 border-l-4 border-black flex-shrink-0">
                     <img src="{{url('/')}}/storage/{{$post->img_path}}" alt="" class="h-52 w-64 border-0">
                 </div>
