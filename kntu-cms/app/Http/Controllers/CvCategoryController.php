@@ -33,4 +33,8 @@ class CvCategoryController extends Controller
 
         return response()->json(array('changed'=> 'true'), 200);
     }
+
+    public function getCvs(CvCategory $category) {
+        return view('cvs.category-cvs-show', ['cat'=> $category]);
+    }
 }

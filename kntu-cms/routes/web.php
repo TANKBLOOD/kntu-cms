@@ -63,6 +63,8 @@ Route::get('/posts', [AnnouncementPostController::class, 'index'])->name('post.i
 
 Route::get('/cv', [ParentCategoryController::class, 'index'])->name('cv.index');
 
-Route::get('generalInfoConfig', [GeneralInfoController::class, 'configPage'])->name('genelInfo.config');
-Route::post('generalInfoConfig', [GeneralInfoController::class, 'update'])->name('generalInfo.update');
+Route::get('/generalInfoConfig', [GeneralInfoController::class, 'configPage'])->name('genelInfo.config');
+Route::post('/generalInfoConfig', [GeneralInfoController::class, 'update'])->name('generalInfo.update');
+
+Route::get('/category/cvs/{category}', [CvCategoryController::class, 'getCvs'])->name('category-cv-show');
 
