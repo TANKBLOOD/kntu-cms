@@ -43,8 +43,8 @@
         <div>
             <div class="container m-auto mt-52 px-16" dir="rtl">
                 <div class="text-center">
-                    <h2 class="font-bold text-4xl text-gray-700">
-                        About Me
+                    <h2 class="font-bold text-4xl text-gray-700"  id="mySocial">
+                        درباره من
                     </h2>
                     <div class="border-2 mt-6 border-gray-800 m-auto" style="width: 3%; ">
                     </div>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-span-3 p-1 mr-32"><!--social media-->
                         <div>
-                            <h2 class="font-bold pr-16 text-xl">My Socail media:</h2>
+                            <h2 class="font-bold pr-16 text-xl">صفحات اجتماعی من:</h2>
                         </div>
                         <div class="flex pr-12 mr-2 mt-8">
                             <div class="pl-3">
@@ -129,7 +129,7 @@
             <div class="m-auto pt-16">
                 <div>
                     <h2 class="font-bold text-4xl text-gray-700 text-center">
-                        Resume
+                        رزومه
                     </h2>
                     <div class="border-2 mt-6 border-gray-800 m-auto" style="width: 3%;">
                     </div>
@@ -147,7 +147,7 @@
                                 @for ($i=0; $i< $catsCount; $i+=2)
                                 <div class="bg-gray-200 float-left mt-10 -ml-14 h-16 rounded-md shadow-md hover:shadow-lg" style="width: 94%;"><!--filled span-->
                                     <div class="p-4 text-center">
-                                        <a href=""><h2 class="text-xl font-bold hover:underline hover:text-blue-400">{{$cats[$i]->name}}</h2></a>
+                                        <a href="/category/cvs/{{$cats[$i]->id}}"><h2 class="text-xl font-bold hover:underline hover:text-blue-400">{{$cats[$i]->name}}</h2></a>
                                     </div>
                                 </div>
                                 <div class="float-left mt-10 -ml-14 h-16 rounded-md" style="width: 94%;">
@@ -179,9 +179,9 @@
                                 <div class="float-right mt-10 -mr-14 h-16 rounded-md" style="width: 94%;"><!--filled span-->
 
                                 </div>
-                                <div class="bg-gray-200 float-right mt-10 -mr-14 h-16 rounded-md shadow-md" style="width: 94%;">
+                                <div class="bg-gray-200 float-right mt-10 -mr-14 h-16 rounded-md shadow-md hover:shadow-lg" style="width: 94%;">
                                     <div class="p-4 text-center">
-                                        <a href=""><h2 class="text-xl font-bold hover:underline hover:text-blue-400">{{$cats[$i]->name}}</h2></a>
+                                        <a href="/category/cvs/{{$cats[$i]->id}}"><h2 class="text-xl font-bold hover:underline hover:text-blue-400">{{$cats[$i]->name}}</h2></a>
                                     </div>
                                 </div>
                                 @endfor
@@ -197,13 +197,13 @@
         </div>
         <div class="py-24 bg-gray-300">
             <div class="container m-auto">
-                <div class="flex items-center justify-center">
+                <div class="flex items-center justify-center" dir="rtl">
                     <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-                    <h2 class="text-center text-3xl font-semibold text-gray-700">Want to Follow my works? <span class="ml-2 text-2  xl text-blue-500 hover:underline cursor-pointer"><a href="/posts">Visit my posts Page.</a></span></h2>
+                    <h2 class="text-center text-3xl font-semibold text-gray-700">برای دنبال کردن اطلاعیه ها و رویدادهای من <span class="ml-2 text-2  xl text-blue-500 hover:underline cursor-pointer"><a href="/posts">به صفحه اطلاعیه ها سر بزنید.</a></span></h2>
                 </div>
                 <div class="text-center">
-                    you can fin out what ever you want in that page <br>
-                    i share every thing from up here
+                    .تمامی رویداد های مربوط به دانشگاه و من در صفحه اطلاعیه ها خواهد بود<br>
+                    <a href="#mySocial"><span class="hover:underline">اطلاعات بیشتر در صفحات اجتماعی من</span></a>
                 </div>
             </div>
         </div>
