@@ -1,34 +1,34 @@
-@extends('custom-layouts.user-side.user-layout')
+@extends('custom-layouts.admin-layout')
 
-@section('title', 'Posts')
+@section('title', 'Admin Post Index')
 
 @section('mainContent')
 <div class="container m-auto mt-28">
     <div class="pb-32" dir="rtl">
         <div>
-            <h1 class="mr-5 ml-6 pr-1 font-bold text-4xl border-b-4 pb-3">
+            <h1 class="pr-1 font-bold text-4xl border-b-4 pb-3">
                 صفحه اطلاعیه
             </h1>
         </div>
-        <div class="mt-12 mx-5 lg:w-9/12">
+        <div class="mt-12 w-9/12">
             @foreach ($posts as $post)
-            <div class="relative my-4 lg:flex justify-start border-2 border-gray-400 rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl">
-                <div class="w-full lg:w-64 lg:border-l-4 border-black flex-shrink-0">
-                    <img src="{{url('/')}}/storage/{{$post->img_path}}" alt="" class="h-52 w-full lg:w-64 border-0">
+            <div class="relative my-4 flex justify-start border-2 border-gray-400 rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl">
+                <div class="w-64 border-l-4 border-black flex-shrink-0">
+                    <img src="{{url('/')}}/storage/{{$post->img_path}}" alt="" class="h-52 w-64 border-0">
                 </div>
-                <div class="p-4 lg:p-7 lg:pr-10">
+                <div class="p-7 pr-10">
                     <div class="text-3xl font-semibold hover:underline">
-                        <a href="/showPost/{{$post->id}}">
+                        <a href="/AdminEditPost/{{$post->id}}">
                             <h3>
                                 {{$post->title}}
                             </h3>
                         </a>
 
                     </div>
-                    <div class="pt-4 mb-1 leading-7 font-medium">
+                    <div class="pt-4 leading-7 font-medium">
                         {{ substr($post->content, 0, 350) }}  ....
                     </div>
-                    <div class="float-left absolute bottom-0 left-6 lg:bottom-4 font-semibold">
+                    <div class="float-left absolute bottom-4 font-semibold">
                         <small dir="ltr">{{$post->created_at}}</small>
                     </div>
                 </div>
@@ -42,4 +42,3 @@
     </div>
 </div>
 @endsection
-

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class AnnouncementPostController extends Controller
 {
+    public function adminIndex() {
+        $posts= AnnouncementPost::orderBy('created_at', 'desc')->paginate(5);
+        return view('posting.admin-index', ['posts'=> $posts]);
+    }
     public function index() {
         $posts= AnnouncementPost::orderBy('created_at', 'desc')->paginate(5);
         return view('posting.index', ['posts'=> $posts]);

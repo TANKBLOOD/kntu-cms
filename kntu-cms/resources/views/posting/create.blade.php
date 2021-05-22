@@ -18,8 +18,7 @@
                     </div>
                     <div>
                         <label for="postContent" class="block font-bold text-lg my-2">Post Text Content</label>
-                        <textarea name="postContent" id="postContent" class="w-5/6 h-52 mb-2 rounded-md">
-                        </textarea>
+                        <textarea name="postContent" id="postContent" class="w-5/6 h-52 mb-2 rounded-md"></textarea>
                     </div>
                     <div>
                         <label for="img" class="block font-bold text-lg my-2">Post Image</label>

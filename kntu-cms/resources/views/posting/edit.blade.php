@@ -32,9 +32,7 @@
                                 </div>
                                 <div class="mt-8 text-xl pr-2">
                                     <label for="postContent" class="block">متن پست: </label>
-                                    <textarea class="w-7/12 mt-4 h-72" name="postContent" id="postContent" style="resize: none">
-                                        {{$post->content}}
-                                    </textarea>
+                                    <textarea class="w-7/12 mt-4 h-72" name="postContent" id="postContent" style="resize: none">{{$post->content}}</textarea>
                                 </div>
                                 <div class="mt-20 pr-2 flex justify-start items-center">
                                     <h1 class="text-xl ml-4">آپلود مقاله جدید</h1>
