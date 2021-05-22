@@ -3,9 +3,9 @@
 @section('title', 'Category Cvs')
 
 @section('mainContent')
-<div class="m-auto xl:grid grid-cols-5 xl:mr-56" dir="rtl">
-    <div class="bg-gray-100 border-l-8 border-gray-800 mt-20 xl:mb-10 rounded-lg col-span-1 shadow-lg" dir="rtl">
-        <div class="mr-4 mt-10 pr-2 border-r-4 border-gray-700 rounded">
+<div class="m-auto xl:grid grid-cols-5 xl:mr-56" dir="rtl" style="font-family: Shabnam;">
+    <div class="bg-gray-100 border-l-8 xl:border-gray-800 mx-4 xl:mx-0 mt-20 xl:mb-10 rounded-lg col-span-1 shadow-lg" dir="rtl">
+        <div class="mr-4 mt-10 pr-2 py-3 rounded text-center xl:text-right">
             <h1 class="text-4xl font-bold">{{$cat->name}}</h1>
             <h2 class="text-2xl font-semibold text-gray-400">{{$cat->parentCategory->name}}</h2>
         </div>

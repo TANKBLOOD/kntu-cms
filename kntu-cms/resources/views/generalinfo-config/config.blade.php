@@ -67,7 +67,7 @@
                     <input type="text" name="github" id="github" class="w-3/4 h-10 mt-2 text-base rounded-lg" value="{{$gInfo->github}}">
                 </div>
                 <div class="mt-12">
-                    <input type="submit" value="Save Changes" class="py-1 px-2 rounded-lg bg-red-500 cursor-pointer hover:shadow-lg text-white text-lg font-semibold">
+                    <input type="submit" value="Save Changes" class="py-1 px-2 rounded-lg bg-blue-500 cursor-pointer hover:shadow-lg text-white text-lg font-semibold">
                 </div>
             </form>
         </div>

@@ -17,7 +17,7 @@
 
         <div class="flex relative mb-12"><!--Site top-->
             <div>
-                <nav class="w-full h-12 flex justify-around items-center absolute bg-blue-500 text-gray-50">
+                <nav class="w-full h-12 flex justify-around items-center absolute bg-gray-800 text-gray-50">
                     <div>
                         <!--Logo-->
                         <h2>

@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100">
     <div><!--main wrapper-->
 
         <div class="flex relative mb-12" id="headNav"><!--Site top-->
             <div>
-                <nav class="w-full h-12 flex justify-around items-center absolute bg-blue-500 text-gray-50">
+                <nav class="w-full h-12 flex justify-around items-center absolute bg-gray-800 text-gray-50">
                     <div>
                         <!--Logo-->
                         <h2>

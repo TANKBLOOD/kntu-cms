@@ -3,18 +3,18 @@
 @section('title', 'Posts')
 
 @section('mainContent')
-<div class="container m-auto mt-28">
+<div class="bg-gray-100 w-10/12 m-auto mt-28" style="font-family: Shabnam;">
     <div class="pb-32" dir="rtl">
-        <div>
-            <h1 class="mr-5 ml-6 pr-1 font-bold text-4xl border-b-4 pb-3">
+        <div class="">
+            <h1 class="lg:w-9/12 mr-5 pr-1 font-bold text-4xl border-b-4 pb-3">
                 صفحه اطلاعیه
             </h1>
         </div>
         <div class="mt-12 mx-5 lg:w-9/12">
             @foreach ($posts as $post)
-            <div class="relative my-4 lg:flex justify-start border-2 border-gray-400 rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl">
-                <div class="w-full lg:w-64 lg:border-l-4 border-black flex-shrink-0">
-                    <img src="{{url('/')}}/storage/{{$post->img_path}}" alt="" class="h-52 w-full lg:w-64 border-0">
+            <div class="relative my-10 lg:flex justify-start border-gray-400 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-2xl">
+                <div class="w-full lg:w-80 lg:border-l-4 border-black flex-shrink-0">
+                    <img src="{{url('/')}}/storage/{{$post->img_path}}" alt="" class="h-60 w-full lg:w-80 border-0">
                 </div>
                 <div class="p-4 lg:p-7 lg:pr-10">
                     <div class="text-3xl font-semibold hover:underline">

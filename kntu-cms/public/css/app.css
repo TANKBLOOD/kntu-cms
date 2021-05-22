@@ -6,7 +6,10 @@
 Document
 ========
 */
-
+@font-face {
+    font-family: Shabnam;
+    src: url('Shabnam.ttf');
+  }
 /**
 Use a better box model (opinionated).
 */

@@ -25,8 +25,8 @@
                     </div>
                     <div><!--content Holder-->
                         <div class="border-2 bg-gray-100 border-gray-300 mx-12 pb-12 border-t-0 -mt-2 shadow-md rounded-b-md">
-                            <div class="mt-4 px-4">
-                                <div>
+                            <div class="mt-8 px-4">
+                                <div class="mt-4">
                                     <label for="postTitle" class="text-xl font-semibold block">عنوان پست :</label>
                                     <input type="text" name="postTitle" id="postTitle" value="{{$post->title}}" class="w-7/12 mr-2 mt-4">
                                 </div>
