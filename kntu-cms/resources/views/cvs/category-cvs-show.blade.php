@@ -59,7 +59,7 @@
                                         {{$component->title}}:
                                     </div>
                                     <div class="text-lg"><!--link value-->
-                                        <a href="{{$component->value}}">
+                                        <a href="{{$component->value}}" class="text-blue-400 hover:underline">
                                             بازدید از لینک
                                         </a>
                                     </div>

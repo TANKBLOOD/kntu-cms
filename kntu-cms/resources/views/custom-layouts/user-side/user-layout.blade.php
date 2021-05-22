@@ -28,13 +28,10 @@
                     <ul class="flex">
                         <!--Navbar list-->
                         <li class="mx-2">
-                            Home
+                            <a href="/cv"> Cv</a>
                         </li>
                         <li class="mx-2">
-                            Cv Config
-                        </li>
-                        <li class="mx-2">
-                            Poster
+                            <a href="/posts">Posts</a>
                         </li>
                     </ul>
                 </nav>

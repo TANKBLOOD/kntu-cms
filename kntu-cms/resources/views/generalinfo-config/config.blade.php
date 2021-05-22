@@ -11,8 +11,10 @@
         <div>
             <form action="{{route('generalInfo.update')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div>
+                <div class="mt-6 rounded-md overflow-hidden">
                     <!--Image preview and update place-->
+                    <label for="personImage" class="cursor-pointer text-xl font-bold">عکس رزومه<img src="{{url('/')}}/storage/{{$gInfo->img_path}}" alt="" class="mt-3" style="width: 200px; height:200px;"></label>
+                    <input type="file" name="personImage" id="personImage" hidden>
                 </div>
                 <div class="my-10">
                     <label for="fName" class="text-xl block">نام و نام خانوادگی</label>
@@ -45,10 +47,6 @@
                 <div class="my-10">
                     <label for="address" class="text-xl block">آدرس</label>
                     <input type="text" name="address" id="address" class="w-3/4 h-10 mt-2 text-base rounded-lg" value="{{$gInfo->address}}">
-                </div>
-                <div class="my-10">
-                    <label for="faceBook" class="text-xl block">لینک فیس بوک</label>
-                    <input type="text" name="faceBook" id="faceBook" class="w-3/4 h-10 mt-2 text-base rounded-lg" value="{{$gInfo->face_book}}">
                 </div>
                 <div class="my-10">
                     <label for="telegram" class="text-xl block">لینک تلگرام</label>

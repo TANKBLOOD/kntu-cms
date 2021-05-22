@@ -21,20 +21,20 @@
                     <div>
                         <!--Logo-->
                         <h2>
-                            KNTU
+                            <a href="/dashboard">KNTU</a>
                         </h2>
                     </div>
 
                     <ul class="flex">
                         <!--Navbar list-->
                         <li class="mx-2">
-                            Home
+                            <a href="/cvConfig">Cv Config</a>
                         </li>
                         <li class="mx-2">
-                            Cv Config
+                            <a href="/adminPosts">Posts</a>
                         </li>
                         <li class="mx-2">
-                            Poster
+                            <a href="/generalInfoConfig">General Info</a>
                         </li>
                     </ul>
                 </nav>

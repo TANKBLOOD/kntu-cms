@@ -15,7 +15,7 @@ class CreateGeneralInfosTable extends Migration
     {
         Schema::create('general_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('img_path');
+            $table->string('img_path')->nullable();
             $table->string('f_name');
             $table->string('main_skill');
             $table->text('about_me');
@@ -24,11 +24,10 @@ class CreateGeneralInfosTable extends Migration
             $table->string('phone_number');
             $table->string('email');
             $table->string('address', 500);
-            $table->string('face_book');
-            $table->string('telegram');
-            $table->string('twitter');
-            $table->string('linkedin');
-            $table->string('github');
+            $table->string('telegram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('github')->nullable();
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-@extends('custom-layouts.admin-layout')
+@extends('custom-layouts.user-side.user-layout')
 
 @section('title', 'Show Post')
 

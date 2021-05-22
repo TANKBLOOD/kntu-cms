@@ -1,6 +1,6 @@
 @extends('custom-layouts.admin-layout')
 
-@section('title', 'Home')
+@section('title', 'Dashboard')
 
 @section('mainContent')
     <div>
