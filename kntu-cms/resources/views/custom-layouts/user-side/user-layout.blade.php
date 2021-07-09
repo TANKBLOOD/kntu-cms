@@ -17,21 +17,21 @@
 
         <div class="flex relative mb-12" id="headNav"><!--Site top-->
             <div>
-                <nav class="w-full h-12 flex justify-around items-center absolute bg-gray-800 text-gray-50">
+                <nav class="w-full h-12 flex justify-around items-center absolute bg-gray-800 text-gray-50" dir="rtl">
                     <div>
                         <!--Logo-->
                         <h2>
-                            KNTU
+                            کی ان تی یو
                         </h2>
                     </div>
 
                     <ul class="flex">
                         <!--Navbar list-->
                         <li class="mx-2">
-                            <a href="/cv"> Cv</a>
+                            <a href="/cv">رزومه</a>
                         </li>
                         <li class="mx-2">
-                            <a href="/posts">Posts</a>
+                            <a href="/posts">اطلاعیه</a>
                         </li>
                     </ul>
                 </nav>

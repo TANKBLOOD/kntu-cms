@@ -13,7 +13,7 @@
                 @csrf
                 <div class="mt-6 rounded-md overflow-hidden">
                     <!--Image preview and update place-->
-                    <label for="personImage" class="cursor-pointer text-xl font-bold">عکس رزومه<img src="{{url('/')}}/storage/{{$gInfo->img_path}}" alt="" class="mt-3" style="width: 200px; height:200px;"></label>
+                    <label for="personImage" class="cursor-pointer text-xl font-bold">عکس رزومه<img src="{{asset($gInfo->img_path)}}" alt="" class="mt-3" style="width: 200px; height:200px;"></label>
                     <input type="file" name="personImage" id="personImage" hidden>
                 </div>
                 <div class="my-10">

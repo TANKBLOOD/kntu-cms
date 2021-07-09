@@ -25,8 +25,13 @@ class AnnouncementPostController extends Controller
         $newPost->title= $request->postTitle;
         $newPost->content= $request->postContent;
 
-        $request->file('img')->store('public/postsimages');
-        $newPost->img_path= 'postsimages/'.$request->file('img')->hashName();
+        // $request->file('img')->store('public/postsimages');
+        // $newPost->img_path= 'postsimages/'.$request->file('img')->hashName();
+
+        $imageName = $request->file('img')->hashName();
+        $request->newImg->move(public_path('/postsimages'), $imageName);
+        // $request->file('newImg')->store('public/postsimages');
+        $newPost->img_path= 'postsimages/'.$imageName;
 
         $request->file('document')->store('public/postsdocs');
         $newPost->attachment= 'postsdocs/'.$request->file('document')->hashName();
@@ -53,13 +58,15 @@ class AnnouncementPostController extends Controller
 
         if($request->hasFile('newImg')){
             try{
-                unlink(storage_path('app/public/'.$post->img_path));
+                unlink(public_path($post->img_path));
             }
             catch(Exception $e){
 
             }
-            $request->file('newImg')->store('public/postsimages');
-            $post->img_path= 'postsimages/'.$request->file('newImg')->hashName();
+            $imageName = $request->file('newImg')->hashName();
+            $request->newImg->move(public_path('/postsimages'), $imageName);
+            // $request->file('newImg')->store('public/postsimages');
+            $post->img_path= 'postsimages/'.$imageName;
         }
         if($request->hasFile('newAttachment')){
             try{

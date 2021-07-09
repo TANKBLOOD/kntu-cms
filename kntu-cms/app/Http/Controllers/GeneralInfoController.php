@@ -17,13 +17,16 @@ class GeneralInfoController extends Controller
         $gInfo= GeneralInfo::first();
         if($request->hasFile('personImage')){
             try{
-                unlink(storage_path('app/public/'.$gInfo->img_path));
+                unlink(public_path($gInfo->img_path));
             }
             catch(Exception $e){
 
             }
-            $request->file('personImage')->store('public/personimage');
-            $gInfo->img_path= 'personimage/'.$request->file('personImage')->hashName();
+            $imageName = $request->file('personImage')->hashName();
+            $request->personImage->move(public_path('/personImage'), $imageName);
+
+            // $request->file('personImage')->store('public/personimage');
+            $gInfo->img_path= 'personImage/'.$imageName;
         }
         $gInfo->f_name=  $request->fName;
         $gInfo->main_skill= $request->mainSkill;

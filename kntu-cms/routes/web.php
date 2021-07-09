@@ -24,9 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ParentCategoryController::class, 'index']);
 Route::get('/cvConfig', [CvConfigController::class, 'displayCvConfigPage'])->name('config.display')->middleware('auth');
 Route::post('/pCatAjax', [ParentCategoryController::class, 'createPcatAjax'])->name('pCat.create')->middleware('auth');
 Route::post('/catAjax', [CvCategoryController::class, 'createCatAjax'])->name('cat.create')->middleware('auth');
